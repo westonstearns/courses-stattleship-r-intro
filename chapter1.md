@@ -32,7 +32,7 @@ msg_success <- "Exactly! There seems to be a very bad action movie in the datase
 test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:65468e39a4
+--- type:NormalExercise lang:r xp:100 skills:1
 ## More movies
 
 In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
@@ -45,7 +45,7 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 - call ss_get_result
 
 *** =hint
-- Use `str()` for the first instruction.
+- Use `set_token()`
 - For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
 - For the plot, use `plot(x = ..., y = ..., col = ...)`. 
 
