@@ -41,8 +41,8 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 
 *** =instructions
 - Set your API token ... 
-- Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
-- Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
+- set the params
+- call ss_get_result
 
 *** =hint
 - Use `str()` for the first instruction.
