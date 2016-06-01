@@ -1,42 +1,20 @@
 ---
-title       : Insert the chapter title here
+title       : Introduction to Stattleship API
 description : Insert the chapter description here
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:VideoExercise lang:r xp:50 skills:1 key:c2b03bf259
-## Analyze movie ratings
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c1463b6116
-## A really bad movie
-
-Have a look at the plot that showed up in the viewer to the right. Which type of movie has the worst rating assigned to it?
-
-*** =instructions
-- Adventure
-- Action
-- Animation
-- Comedy
-
-*** =hint
-Have a look at the plot. Which color does the point with the lowest rating have?
 
 *** =pre_exercise_code
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
 
-# 1. Preload a dataset. The code below will read the csv that is stored at the URL's location.
-# The movies variable will be available in the user's console.
-movies <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/course/introduction_to_r/movies.csv")
-
-# 2. Pre-load packages, so that users don't have to do this manually.
-library(ggplot2)
+devtools::install_github("stattleship/stattleship-r")
+library(stattleshipR)
+set_token('18efec0cec8943fa9f5397516e4a6809')
 
 # 3. Create a plot in the viewer, that students can check out while reading the exercise
-ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
+# ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
 ```
 
 *** =sct
@@ -62,7 +40,7 @@ In the previous exercise, you saw a dataset about movies. In this exercise, we'l
 A dataset with a selection of movies, `movie_selection`, is available in the workspace.
 
 *** =instructions
-- Check out the structure of `movie_selection`.
+- Set your API token ... 
 - Select movies with a rating of 5 or higher. Assign the result to `good_movies`.
 - Use `plot()` to  plot `good_movies$Run` on the x-axis, `good_movies$Rating` on the y-axis and set `col` to `good_movies$Genre`.
 
@@ -74,42 +52,39 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
-library(MindOnStats)
+#library(MindOnStats)
 
 # You can prepare the data before the student starts:
-data(Movies)
-movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
+#data(Movies)
+#movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
 
 # You can also clean up data so that it's not available in the student's workspace anymore:
-rm(Movies)
+#rm(Movies)
 ```
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# API token has been set for you
 
-# Check out the structure of movie_selection
+# set sport, league, ep and q_body
 
-
-# Select movies that have a rating of 5 or higher: good_movies
-
-
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# query for the data
 
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# API token set for you
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# set params
+sport <- 'basketball'
+league <- 'nba'
+ep <- 'game_logs'
+q_body <- list(since='1 day ago')
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# call Stattleship API
+gl <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, version=1, verbose=TRUE, walk=TRUE)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
 ```
 
 *** =sct
@@ -121,20 +96,20 @@ plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
 # Test whether the function str is called with the correct argument, object
 # If it is not called, print something informative
 # If it is called, but called incorrectly, print something else
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
+#test_function("str", args = "object",
+#              not_called_msg = "You didn't call `str()`!",
+#              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
 # Test the object, good_movies
 # Notice that we didn't define any feedback here, this will cause automatically 
 # generated feedback to be given to the student in case of an incorrect submission
-test_object("good_movies")
+test_object("gl")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
+# test_function("plot", args = "x")
+# test_function("plot", args = "y")
+# test_function("plot", args = "col")
 
 # Alternativeley, you can use test_function() like this
 # test_function("plot", args = c("x", "y", "col"))
