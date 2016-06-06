@@ -64,7 +64,7 @@ library(stattleshipR)
 
 *** =sample_code
 ```{r}
-# API token has been set for you
+# set API token
 
 # set sport, league, ep and q_body
 
@@ -74,7 +74,8 @@ library(stattleshipR)
 
 *** =solution
 ```{r}
-# API token set for you
+# set API token
+set_token("18efec0cec8943fa9f5397516e4a6809")
 
 # set params
 sport <- 'basketball'
