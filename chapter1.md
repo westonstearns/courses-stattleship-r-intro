@@ -5,6 +5,21 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 
+--- type:MultipleChoiceExercise xp:50 skills:1  key:f48b5ed8a3
+## Test 1 Stattle
+
+Test descriptions
+
+*** =instructions
+- 1
+- 2
+- 3
+- 4
+  
+*** =hint
+There first-row from the `str()` output indicates how many rows are in this data set. There is one review per row!    
+
+
 *** =pre_exercise_code
 ```{r}
 # The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
