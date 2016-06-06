@@ -1,6 +1,6 @@
 ---
 title       : Introduction to Stattleship API
-description : Insert the chapter description here
+description : 
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
@@ -75,7 +75,7 @@ library(stattleshipR)
 *** =solution
 ```{r}
 # set API token
-set_token("18efec0cec8943fa9f5397516e4a6809")
+set_token(os.getenv("STATTLE_TOKEN"))
 
 # set params
 sport <- 'basketball'
