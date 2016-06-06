@@ -11,7 +11,8 @@ attachments :
 
 devtools::install_github("stattleship/stattleship-r")
 library(stattleshipR)
-set_token(os.getenv("STATTLE_TOKEN"))
+#set_token(os.getenv("STATTLE_TOKEN"))
+set_token("18efec0cec8943fa9f5397516e4a6809")
 
 # 3. Create a plot in the viewer, that students can check out while reading the exercise
 # ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
