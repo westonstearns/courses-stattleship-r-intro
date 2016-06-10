@@ -8,7 +8,7 @@ attachments :
 ## first query
 
 *** =instructions
-- Set your API token. Sign up for one from www dot stattleship dot com.
+- Set your API token. Sign up for one at [stattleship.com](https://www.stattleship.com/).
 - set the params
 - call `ss_get_result()`
 
