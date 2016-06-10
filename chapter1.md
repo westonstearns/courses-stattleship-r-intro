@@ -4,57 +4,13 @@ description : test description
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
-
---- type:MultipleChoiceExercise xp:50 skills:1  key:f48b5ed8a3
-## Test 1 Stattle
-
-Test descriptions
-
-*** =instructions
-- 1
-- 2
-- 3
-- 4
-  
-*** =hint
-There first-row from the `str()` output indicates how many rows are in this data set. There is one review per row!    
-
-
-*** =pre_exercise_code
-```{r}
-# The pre exercise code runs code to initialize the user's workspace. You can use it for several things:
-
-devtools::install_github("stattleship/stattleship-r")
-library(stattleshipR)
-#set_token(os.getenv("STATTLE_TOKEN"))
-set_token("416745fa271fa945c0834ecdbe8d5c08")
-
-# 3. Create a plot in the viewer, that students can check out while reading the exercise
-# ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
-```
-
-*** =sct
-```{r}
-# The sct section defines the Submission Correctness Tests (SCTs) used to
-# evaluate the student's response. All functions used here are defined in the 
-# testwhat R package
-
-msg_bad <- "That is not correct!"
-msg_success <- "Exactly! There seems to be a very bad action movie in the dataset."
-
-# Use test_mc() to grade multiple choice exercises. 
-# Pass the correct option (Action, option 2 in the instructions) to correct.
-# Pass the feedback messages, both positive and negative, to feedback_msgs in the appropriate order.
-test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad)) 
-```
-
 --- type:NormalExercise lang:r xp:100 skills:1 key:65468e39a4
 ## first query
 
 *** =instructions
 - Set your API token ... 
 - set the params
-- call ss_get_result
+- call `ss_get_result()`
 
 *** =hint
 - Use `set_token()`
