@@ -37,18 +37,18 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 *** =sample_code
 ```{r}
-# set API token
+# set sport e.g. sport <- 'MLB'
 
-# set sport, league, ep and q_body
+# set league
 
-# query for the data
+# set ep to 'team_game_logs'
+
+# set q_body like this q_body <- list(status='ended', since='1 day ago')
 
 ```
 
 *** =solution
 ```{r}
-# set API token
-set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 # set params
 sport <- 'baseball'
@@ -75,6 +75,8 @@ q_body <- list(since='1 day ago', status='ended')
 # Notice that we didn't define any feedback here, this will cause automatically 
 # generated feedback to be given to the student in case of an incorrect submission
 test_object("sport")
+test_object("ep")
+test_object("league")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
