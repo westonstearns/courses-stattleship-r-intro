@@ -37,13 +37,13 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 *** =sample_code
 ```{r}
-# set sport e.g. sport <- 'MLB'
+# set sport: sport <- 'baseball'
 
-# set league
+# set league: league <- 'MLB'
 
 # set ep to 'team_game_logs'
 
-# set q_body like this q_body <- list(status='ended', since='1 day ago')
+# set q_body like this: q_body <- list(status='ended', since='1 day ago'). q_body is just a list of more granular options to pass to the API.
 
 ```
 
