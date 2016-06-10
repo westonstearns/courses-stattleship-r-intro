@@ -27,7 +27,7 @@ There first-row from the `str()` output indicates how many rows are in this data
 devtools::install_github("stattleship/stattleship-r")
 library(stattleshipR)
 #set_token(os.getenv("STATTLE_TOKEN"))
-set_token("18efec0cec8943fa9f5397516e4a6809")
+set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 # 3. Create a plot in the viewer, that students can check out while reading the exercise
 # ggplot(movies, aes(x = runtime, y = rating, col = genre)) + geom_point()
@@ -49,11 +49,7 @@ test_mc(correct = 2, feedback_msgs = c(msg_bad, msg_success, msg_bad, msg_bad))
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:65468e39a4
-## More movies
-
-In the previous exercise, you saw a dataset about movies. In this exercise, we'll have a look at yet another dataset about movies!
-
-A dataset with a selection of movies, `movie_selection`, is available in the workspace.
+## first query
 
 *** =instructions
 - Set your API token ... 
@@ -62,20 +58,13 @@ A dataset with a selection of movies, `movie_selection`, is available in the wor
 
 *** =hint
 - Use `set_token()`
-- For the second instruction, you should use `...[movie_selection$Rating >= 5, ]`.
-- For the plot, use `plot(x = ..., y = ..., col = ...)`. 
 
 *** =pre_exercise_code
 ```{r}
 # Pre-load a package in the workspace
 library(stattleshipR)
+set_token("416745fa271fa945c0834ecdbe8d5c08")
 
-# You can prepare the data before the student starts:
-#data(Movies)
-#movie_selection <- Movies[Movies$Genre %in% c("action", "animated", "comedy"),c("Genre", "Rating", "Run")]
-
-# You can also clean up data so that it's not available in the student's workspace anymore:
-#rm(Movies)
 ```
 
 *** =sample_code
@@ -91,7 +80,7 @@ library(stattleshipR)
 *** =solution
 ```{r}
 # set API token
-set_token(os.getenv("STATTLE_TOKEN"))
+set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 # set params
 sport <- 'basketball'
@@ -117,7 +106,7 @@ gl <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, version=1, 
 #              not_called_msg = "You didn't call `str()`!",
 #              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
-# Test the object, good_movies
+# Test the object, gl
 # Notice that we didn't define any feedback here, this will cause automatically 
 # generated feedback to be given to the student in case of an incorrect submission
 test_object("gl")
