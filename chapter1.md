@@ -16,7 +16,7 @@ Let's query for yesterday's MLB team game logs. In order to do this, you will ne
 
 ```
 sport <- 'baseball'
-league <- 'MLB'
+league <- 'mlb'
 ep <- 'team_game_logs'
 q_body <- list(since = '1 day ago', status='ended')
 
@@ -39,7 +39,7 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 ```{r}
 # set sport: sport <- 'baseball'
 
-# set league: league <- 'MLB'
+# set league: league <- 'mlb'
 
 # set ep to 'team_game_logs'
 
