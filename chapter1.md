@@ -5,12 +5,24 @@ attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:65468e39a4
-## first query
+## Set API token and parameters
 
 *** =instructions
-- Set your API token. Sign up for one at [stattleship.com](https://www.stattleship.com/).
-- set the params
-- call `ss_get_result()`
+- Set your API token. We've already done this for you, but if you'd like to continue to use the API outside of DataCamp, sign up for one at [stattleship.com](https://www.stattleship.com/). This is done with `set_token('YOUR-TOKEN-GOES-HERE')`.
+- The Stattleship library has already been installed and loaded for you with `library(stattleshipR)`
+
+The next step is to set the parameters needed to query the API. There are 4 main parameters: `sport`, `league`, `ep` and `q_body`. 
+Let's query for yesterday's MLB team game logs. In order to do this, you will need to set the parameters like this:
+
+```
+sport <- 'baseball'
+league <- 'MLB'
+ep <- 'team_game_logs'
+q_body <- list(since = '1 day ago', status='ended')
+
+```
+
+Now you try it!
 
 *** =hint
 - Use `set_token()`
