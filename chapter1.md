@@ -90,7 +90,6 @@ q_body <- list(since='1 day ago')
 
 # call Stattleship API
 gl <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, version=1, verbose=TRUE, walk=TRUE)
-
 ```
 
 *** =sct
