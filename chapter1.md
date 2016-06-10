@@ -56,8 +56,6 @@ league <- 'nba'
 ep <- 'game_logs'
 q_body <- list(since='1 day ago')
 
-# call Stattleship API
-gl <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, version=1, verbose=TRUE, walk=TRUE)
 ```
 
 *** =sct
@@ -73,10 +71,10 @@ gl <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, version=1, 
 #              not_called_msg = "You didn't call `str()`!",
 #              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
 
-# Test the object, gl
+# Test the that the params were set properly
 # Notice that we didn't define any feedback here, this will cause automatically 
 # generated feedback to be given to the student in case of an incorrect submission
-test_object("gl")
+test_object("sport")
 
 # Test whether the student correctly used plot()
 # Again, we use the automatically generated feedback here
