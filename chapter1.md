@@ -51,10 +51,10 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 # set params
-sport <- 'basketball'
-league <- 'nba'
-ep <- 'game_logs'
-q_body <- list(since='1 day ago')
+sport <- 'baseball'
+league <- 'mlb'
+ep <- 'team_game_logs'
+q_body <- list(since='1 day ago', status='ended')
 
 ```
 
