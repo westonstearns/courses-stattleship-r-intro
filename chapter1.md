@@ -1,97 +1,146 @@
 ---
 title       : Introduction to Stattleship API
 description : test description
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
 
---- type:NormalExercise lang:r xp:100 skills:1 key:65468e39a4
-## Set API token and parameters
+---
+title       : For loops
+description : A brief intro to writing for loops
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:e20287ea44
+## Getting started with stattleshipR
+
+Before we get started with the demo of the `stattleshipR` API, we want to recap how to install a package and load it into the environement. 
+
+The `stattleshipR` package along with the accessory packages `dplyr` and `ggplot2` are installed and loaded on the DataCamp servers. The following code can be used to install it on your personal computer outside of the DataCamp platform.  
+
+```
+install.packages("devtools")  
+devtools::install_github("stattleship/stattleship-r")
+install.packages('dplyr')
+install.packages('ggplot2')
+```
+
+Now we will have you can install each of those three packages.
 
 *** =instructions
-- Set your API token. We've already done this for you, but if you'd like to continue to use the API outside of DataCamp, sign up for one at [stattleship.com](https://www.stattleship.com/). This is done with `set_token('YOUR-TOKEN-GOES-HERE')`.
-- The Stattleship library has already been installed and loaded for you with `library(stattleshipR)`
-
-The next step is to set the parameters needed to query the API. There are 4 main parameters: `sport`, `league`, `ep` and `q_body`. 
-Let's query for yesterday's MLB team game logs. In order to do this, you will need to set the parameters like this:
-
-```
-sport <- 'baseball'
-league <- 'mlb'
-ep <- 'team_game_logs'
-q_body <- list(since = '1 day ago', status='ended')
-
-```
-
-Now you try it!
+- Load the `stattleshipR` package
+- Load the `dplyr` package
+- Load the `ggplot2` package
 
 *** =hint
-- Use `set_token()`
+- To load a package use the `library()` function
 
 *** =pre_exercise_code
 ```{r}
-# Pre-load a package in the workspace
-library(stattleshipR)
-set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 ```
 
 *** =sample_code
 ```{r}
-# set sport: sport <- 'baseball'
+# Load the stattleshipR package
+library(___)  
 
-# set league: league <- 'mlb'
+# Load the dplyr package
+library(___)
 
-# set ep to 'team_game_logs'
+# Load the ggplot2 package
+library(___)
 
-# set q_body like this: q_body <- list(status='ended', since='1 day ago'). q_body is just a list of more granular options to pass to the API.
+
+```
+
+*** =solution
+```{r}
+# Load the stattleshipR package
+library(stattleshipR)  
+
+# Load the dplyr package
+library(dplyr)
+
+# Load the ggplot2 package
+library(ggplot2)
+
+```
+
+*** =sct
+```{r}
+
+test_function("library", index = 1, , not_called_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", args_not_specified_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `stattleshipR`? Check out the hint if you need help.")
+
+test_function("library", index = 2, not_called_msg = "Did you load `dplyr`? Check out the hint if you need help.", args_not_specified_msg = "Did you load `dplyr`? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `dplyr`? Check out the hint if you need help.")
+
+test_function("library", index = 3, not_called_msg = "Did you load ggplot2? Check out the hint if you need help.", args_not_specified_msg = "Did you load ggplot2? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `ggplot2`? Check out the hint if you need help.")
+
+test_error()
+success_msg("Good work!")
+```
+
+
+
+
+set_token("your-api-token")
+
+sport <- 'baseball'  
+league <- 'mlb'  
+ep <- 'game_logs'  
+q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
+
+gls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+game_logs<-do.call('rbind', lapply(gls, function(x) x$game_logs)) 
+
+sport <- 'baseball'  
+league <- 'mlb'  
+ep <- 'players'  
+q_body <- list(team_id='mlb-bos')
+
+pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+players<-do.call('rbind', lapply(pls, function(x) x$players)) 
+
+colnames(players)[1] <- 'player_id'
+game_logs <- merge(players, game_logs, by='player_id')
+
+stats <- 
+  game_logs %>%
+  filter(game_played == TRUE) %>%
+  group_by(name) %>%
+  summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
+
+ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
+
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+##     
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
 
 ```
 
 *** =solution
 ```{r}
 
-# set params
-sport <- 'baseball'
-league <- 'mlb'
-ep <- 'team_game_logs'
-q_body <- list(since='1 day ago', status='ended')
+
 
 ```
 
 *** =sct
 ```{r}
-# The sct section defines the Submission Correctness Tests (SCTs) used to
-# evaluate the student's response. All functions used here are defined in the 
-# testwhat R package. Documentation can also be found at github.com/datacamp/testwhat/wiki
 
-# Test whether the function str is called with the correct argument, object
-# If it is not called, print something informative
-# If it is called, but called incorrectly, print something else
-#test_function("str", args = "object",
-#              not_called_msg = "You didn't call `str()`!",
-#              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-# Test the that the params were set properly
-# Notice that we didn't define any feedback here, this will cause automatically 
-# generated feedback to be given to the student in case of an incorrect submission
-test_object("sport")
-test_object("ep")
-test_object("league")
-
-# Test whether the student correctly used plot()
-# Again, we use the automatically generated feedback here
-# test_function("plot", args = "x")
-# test_function("plot", args = "y")
-# test_function("plot", args = "col")
-
-# Alternativeley, you can use test_function() like this
-# test_function("plot", args = c("x", "y", "col"))
-
-# It's always smart to include the following line of code at the end of your SCTs
-# It will check whether executing the student's code resulted in an error, 
-# and if so, will cause the exercise to fail
 test_error()
-
-# Final message the student will see upon completing the exercise
 success_msg("Good work!")
 ```
+
+
+
