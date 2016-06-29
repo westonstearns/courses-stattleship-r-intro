@@ -93,7 +93,7 @@ The format for the API call has been included in the sample code but follow the 
 
 *** =pre_exercise_code
 ```{r}
-# library(stattleshipR)  
+library(stattleshipR)  
 library(dplyr)
 library(ggplot2)
 
