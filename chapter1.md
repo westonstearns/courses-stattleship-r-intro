@@ -1,17 +1,14 @@
 ---
 title       : Introduction to Stattleship API
 description : test description
-
 ---
-title       : For loops
-description : A brief intro to writing for loops
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:e20287ea44
 ## Getting started with stattleshipR
 
 Before we get started with the demo of the `stattleshipR` API, we want to recap how to install a package and load it into the environement. 
 
-The `stattleshipR` package along with the accessory packages `dplyr` and `ggplot2` are installed and loaded on the DataCamp servers. The following code can be used to install it on your personal computer outside of the DataCamp platform.  
+The `stattleshipR` package along with the accessory packages `dplyr` and `ggplot2` are installed on the DataCamp servers. The following code can be used to install it on your personal computer outside of the DataCamp platform.  
 
 ```
 install.packages("devtools")  
@@ -65,7 +62,7 @@ library(ggplot2)
 *** =sct
 ```{r}
 
-test_function("library", index = 1, , not_called_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", args_not_specified_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `stattleshipR`? Check out the hint if you need help.")
+test_function("library", index = 1, not_called_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", args_not_specified_msg = "Did you load `stattleshipR`? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `stattleshipR`? Check out the hint if you need help.")
 
 test_function("library", index = 2, not_called_msg = "Did you load `dplyr`? Check out the hint if you need help.", args_not_specified_msg = "Did you load `dplyr`? Check out the hint if you need help.", incorrect_msg = "Something's not right with how you loaded `dplyr`? Check out the hint if you need help.")
 
