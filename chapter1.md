@@ -72,63 +72,58 @@ test_error()
 success_msg("Good work!")
 ```
 
-
-
-
-set_token("your-api-token")
-
-sport <- 'baseball'  
-league <- 'mlb'  
-ep <- 'game_logs'  
-q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
-
-gls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
-game_logs<-do.call('rbind', lapply(gls, function(x) x$game_logs)) 
-
-sport <- 'baseball'  
-league <- 'mlb'  
-ep <- 'players'  
-q_body <- list(team_id='mlb-bos')
-
-pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
-players<-do.call('rbind', lapply(pls, function(x) x$players)) 
-
-colnames(players)[1] <- 'player_id'
-game_logs <- merge(players, game_logs, by='player_id')
-
-stats <- 
-  game_logs %>%
-  filter(game_played == TRUE) %>%
-  group_by(name) %>%
-  summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
-
-ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
-
-
 --- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
-##     
+## Calling the API
+
+Now that you have loaded the packages that you will need, its time for you to explore the API call syntax. 
+
+You will need to set the token using the `set_token` function. The token here can only be used in DataCamp, click here for more information about who to get a perminant token for using the API outside of DataCamp. 
+
+A `q_body` object is defined to be used in the API call. This code determines....
+
+The format for the API call has been included in the sample code but follow the instructions to define the missing arguements. 
 
 *** =instructions
-- 
+- Set the `sport` arguement in the API call to `'baseball'`  
+- Set the `league` argument in the API call to `'mlb'` 
+- Set the `ep` argument in the API call to `'game_logs'`
 
 *** =hint
-- 
+- Don't change the code for the token or the `q_body`. Remember to use '' around the arugments you add to the API call.  
 
 *** =pre_exercise_code
 ```{r}
+# Load the stattleshipR package
+library(stattleshipR)  
+
+# Load the dplyr package
+library(dplyr)
+
+# Load the ggplot2 package
+library(ggplot2)
 
 ```
 
 *** =sample_code
 ```{r}
+# The token to access the stattleshipR API
+set_token("416745fa271fa945c0834ecdbe8d5c08")
 
+# 
+q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
+
+# The API call 
+gls <- ss_get_result(sport=___, league=___, ep=___, query=q_body, walk=TRUE)  
 
 ```
 
 *** =solution
 ```{r}
+set_token("416745fa271fa945c0834ecdbe8d5c08")
 
+q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
 
+gls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
 
 ```
 
@@ -138,6 +133,5 @@ ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=sala
 test_error()
 success_msg("Good work!")
 ```
-
 
 
