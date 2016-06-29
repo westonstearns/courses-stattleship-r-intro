@@ -93,13 +93,8 @@ The format for the API call has been included in the sample code but follow the 
 
 *** =pre_exercise_code
 ```{r}
-# Load the stattleshipR package
-library(stattleshipR)  
-
-# Load the dplyr package
+# library(stattleshipR)  
 library(dplyr)
-
-# Load the ggplot2 package
 library(ggplot2)
 
 ```
@@ -136,5 +131,84 @@ gls <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query 
 test_error()
 success_msg("Good work!")
 ```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## First API Call
+
+You successfully called in data using the stattleshipR API. Let's have a look at the data. 
+
+The code provided manipulates the data that you called in to help you see the size and completixty of the data that you can get from stattleshipR. There variety and size of the data mean that there countless of projects and potential uses for the data. Remember this was just one specific API call from many other options. 
+
+At the end of the course you can download a list of all the options and datasets that can be accessed through stattleshipR.
+
+Run the code and follow the instructions below to get a better sense of the data and possibilites you have in using the stattleship API.  
+
+*** =instructions
+- Run the first code block to find all the variables within the dataset.
+- Use the `length` function to find the number of `variables` you called in with the stattleshipR API call.  
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+library(stattleshipR)  
+library(dplyr)
+library(ggplot2)
+
+set_token("416745fa271fa945c0834ecdbe8d5c08")
+q_body <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason')
+gls <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = q_body, walk=TRUE)  
+
+for (x in 1:31){
+  for(i in 1:12){
+    data <- as.data.frame(gls[[x]][i])
+    data_names <- names(data)
+    data_names_edit = unlist(regmatches(data_names,gregexpr("(?<=\\.).*",data_names, perl = TRUE)))
+    nam <- paste("df", i, sep = "")
+    assign(nam, as.data.frame(data_names_edit))
+  }
+}
+
+all_variables <-  unique(Reduce(function(x, y) merge(x, y, all=TRUE), list(df1,df2,df3,df4, df5,df6,df7,df8,df9,df10,df11,df12)))
+names(all_variables) <- c("variables")
+
+
+```
+
+*** =sample_code
+```{r}
+for (x in 1:31){
+  for(i in 1:12){
+    data <- as.data.frame(gls[[x]][i])
+    data_names <- names(data)
+    data_names_edit = unlist(regmatches(data_names,gregexpr("(?<=\\.).*",data_names, perl = TRUE)))
+    nam <- paste("df", i, sep = "")
+    assign(nam, as.data.frame(data_names_edit))
+  }
+}
+
+all_variables <-  unique(Reduce(function(x, y) merge(x, y, all=TRUE), list(df1,df2,df3,df4, df5,df6,df7,df8,df9,df10,df11,df12)))
+names(all_variables) <- c("variables")
+
+length(unlist(all_variables$variables))
+```
+
+*** =solution
+```{r}
+
+length(unlist(all_variables$variables))
+
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+
 
 
