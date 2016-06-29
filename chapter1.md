@@ -110,20 +110,23 @@ library(ggplot2)
 set_token("416745fa271fa945c0834ecdbe8d5c08")
 
 # 
-q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
+q_body <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason')
 
 # The API call 
-gls <- ss_get_result(sport=___, league=___, ep=___, query=q_body, walk=TRUE)  
+gls <- ss_get_result(sport = ___, league = ___, ep = ___, query = q_body, walk = TRUE)  
 
 ```
 
 *** =solution
 ```{r}
+# The token to access the stattleshipR API
 set_token("416745fa271fa945c0834ecdbe8d5c08")
 
-q_body <- list(team_id='mlb-bos', status='ended', interval_type='regularseason')
+# 
+q_body <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason')
 
-gls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+# The API call 
+gls <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = q_body, walk=TRUE)  
 
 ```
 
