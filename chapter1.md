@@ -31,7 +31,6 @@ The format for the API call has been included in the sample code but follow the 
 ```{r}
 library(dplyr)
 library(ggplot2)
-
 ```
 
 *** =sample_code
