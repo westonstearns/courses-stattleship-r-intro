@@ -61,7 +61,7 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason')
 
 # The API call 
-game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
+#game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
 
 ```
 
