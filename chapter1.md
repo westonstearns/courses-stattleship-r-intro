@@ -339,22 +339,30 @@ success_msg("Good work!")
 --- type:MultipleChoiceExercise lang:r xp:50 skills:3 key:6d4d29437c
 ## Plot 
 
-We generated a plot using `ggplot2` with the following code
+Using the `stats` data set you created in the previous exercise we calculated the Runs over Replacement metric. It identifies the number of runs a player gives their team when compared to an average replacemnt player. 
+
+We calulated this using the general formula:
 ```
-ggplot(stats, aes(x=RAA, y=meanBA, size=totalBases, label=name, color=RAA_Dollar)) + geom_text()
-ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
+Runs over Replacement = Player_runs - ReplPlayer_runs = (Player_runs - AvgPlayer_runs) + (AvgPlayer_runs - ReplPlayer_runs)
+```
+You can see this metric in the plot to the right which was generated using `ggplot2` with the following code
+```
+ggplot(stats, aes(x = Runs_Over_Replacement, y = meanBA, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar)) + geom_text()
+
 ```
 If you want to learn more about `ggplot2`, try our course on <a href="http://www.datacamp.com/courses/data-visualization-with-ggplot2-1">ggplot2</a>.
 
-Which player did stuff and stuff?
+Use the plot to answer the following question:
+
+Which player has the highest `Runs_Over_Replacement_per_Dollar(thousand)`?
 
 *** =instructions
 - Xander Bogaerts
 - David Ortiz
-- Joe Shmo
+- Dustin Pedroia
 
 *** =hint
-Here's a hint: think about your time in primary school.
+The place with the hightest `Runs_Over_Replacement_per_Dollar` will be in the lightest blue.
 
 *** =pre_exercise_code
 ```{r}
@@ -364,16 +372,17 @@ library(dplyr)
 stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
-    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Above_Avg = Player_runs - ReplPlayer_runs, Runs_Above_Avg_per_Dollar = 1000*(Runs_Above_Avg/salary))
-ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = name, color = Runs_Above_Avg_per_Dollar)) + geom_text()
+    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Over_Replacement = Player_runs - ReplPlayer_runs, Runs_Over_Replacement_per_Dollar(thousand) = 1000*(Runs_Over_Replacement/salary))
+ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar(thousand))) + geom_text()
 ```
 
 *** =sct
 ```{r}
-msg1 = "Try again!"
+msg1 = "You got it! We hoped you enjoyed your intro to the stattleshipR package. This API gives you access to a tremendous amount of Sports information and we showed you just a fraction of what you can do with the data at your fingertips. Please explore the <a href="http://developers.stattleship.com/#introduction">stattleshipR package</a> and DataCamp to help get you moving toward becoming a Sports Data Scientist."
 msg2 = "Try again."
-msg3 = "Well done."
-test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
+msg3 = "Not quite."
+test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
+
 ```
 
 
