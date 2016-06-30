@@ -302,7 +302,7 @@ success_msg("Good work!")
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_logs.RData"))
-
+library(dplyr)
 ```
 
 *** =sample_code
@@ -348,7 +348,7 @@ success_msg("Good work!")
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/stats.RData"))
-
+library(ggplot2)
 ```
 
 *** =sample_code
