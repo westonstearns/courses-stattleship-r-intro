@@ -118,7 +118,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
 ## Game logs 1    
 
 *** =instructions
@@ -152,7 +152,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:831345cf7b
 ## Second Call     
 
 *** =instructions
@@ -189,7 +189,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
 ## Players    
 
 *** =instructions
@@ -226,7 +226,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:7651cbecc4
 ## Game Logs   
 
 *** =instructions
@@ -262,7 +262,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:46ddcad271
 ## Stats    
 
 *** =instructions
@@ -308,7 +308,7 @@ test_error()
 success_msg("Good work!")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+--- type:NormalExercise lang:r xp:100 skills:1  key:6d4d29437c
 ## Plot    
 
 *** =instructions
