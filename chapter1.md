@@ -134,13 +134,13 @@ success_msg("Good work!")
 *** =sample_code
 ```{r}
 game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
-
+names(game_logs)
 ```
 
 *** =solution
 ```{r}
 game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
-
+names(game_logs)
 ```
 
 *** =sct
@@ -166,13 +166,34 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
-player_data <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+# Load stattleshipR package
+library(stattleshipR)
+
+# The token to access the stattleshipR API
+set_token("416745fa271fa945c0834ecdbe8d5c08")
+
+# Create a query list for the API call
+query_list <- list(team_id='mlb-bos')
+
+# The API call 
+player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , query=query_list, walk=TRUE)
 
 ```
 
 *** =solution
 ```{r}
-player_data <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)
+#
+# Load stattleshipR package
+library(stattleshipR)
+
+# The token to access the stattleshipR API
+set_token("416745fa271fa945c0834ecdbe8d5c08")
+
+# Create a query list for the API call
+query_list <- list(team_id='mlb-bos')
+
+# The API call 
+player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , query=query_list, walk=TRUE)
 
 ```
 
@@ -199,21 +220,19 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
-players <- do.call('rbind', lapply(pls, function(x) x$players)) 
-
+players <- do.call('rbind', lapply(player_data, function(x) x$players)) 
 colnames(players)[1] <- 'player_id'
-
 names(players)
+
 
 ```
 
 *** =solution
 ```{r}
-players <- do.call('rbind', lapply(pls, function(x) x$players)) 
-
+players <- do.call('rbind', lapply(player_data, function(x) x$players)) 
 colnames(players)[1] <- 'player_id'
-
 names(players)
+
 
 ```
 
@@ -241,16 +260,13 @@ success_msg("Good work!")
 *** =sample_code
 ```{r}
 game_logs <- merge(players, game_logs, by='player_id')
-
 names(game_logs)
 
 ```
 
 *** =solution
 ```{r}
-
 game_logs <- merge(players, game_logs, by='player_id')
-
 names(game_logs)
 
 ```
