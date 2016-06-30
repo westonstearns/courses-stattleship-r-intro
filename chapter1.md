@@ -365,7 +365,7 @@ stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
     mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), RAA = Player_runs - ReplPlayer_runs, RAA_Dollar = (RAA/salary))
-ggplot(stats, aes(x=RAA, y=meanBA, size=totalBases, label=name, color=RAA_Dollar)) + geom_text()
+ggplot(stats, aes(x = meanBA, y = RAA, size = totalBases, label = name, color = RAA_Dollar)) + geom_text()
 ```
 
 *** =sct
