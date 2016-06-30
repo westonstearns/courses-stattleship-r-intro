@@ -345,15 +345,13 @@ We calulated this using the general formula:
 ```
 Runs over Replacement = Player_runs - ReplPlayer_runs = (Player_runs - AvgPlayer_runs) + (AvgPlayer_runs - ReplPlayer_runs)
 ```
-You can see this metric in the plot to the right which was generated using `ggplot2` with the following code
-
-```ggplot(stats, aes(x = Runs_Over_Replacement, y = meanBA, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar)) + geom_text()```
+You can see this metric in the plot to the right which was generated using `ggplot2`.
 
 If you want to learn more about `ggplot2`, try our course on <a href="http://www.datacamp.com/courses/data-visualization-with-ggplot2-1">ggplot2</a>.
 
 Use the plot to answer the following question:
 
-Which player has the highest `Runs_Over_Replacement_per_Dollar(thousand)`?
+Which player has the highest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`)?
 
 *** =instructions
 - Xander Bogaerts
@@ -361,7 +359,7 @@ Which player has the highest `Runs_Over_Replacement_per_Dollar(thousand)`?
 - Dustin Pedroia
 
 *** =hint
-The place with the hightest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`) will be in the lightest blue.
+The player with the hightest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`) will be in the lightest blue.
 
 *** =pre_exercise_code
 ```{r}
