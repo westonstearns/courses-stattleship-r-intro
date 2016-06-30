@@ -364,7 +364,7 @@ library(dplyr)
 stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
-    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Above_Avg = Player_runs - ReplPlayer_runs, Runs_Above_Avg_per_Dollar = (Runs_Above_Avg/salary))
+    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Above_Avg = Player_runs - ReplPlayer_runs, Runs_Above_Avg_per_Dollar = 1000*(Runs_Above_Avg/salary))
 ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = name, color = Runs_Above_Avg_per_Dollar)) + geom_text()
 ```
 
