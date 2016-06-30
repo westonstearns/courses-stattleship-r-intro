@@ -359,6 +359,7 @@ Here's a hint: think about your time in primary school.
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/stats.RData"))
 library(ggplot2)
+library(dplyr)
 stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
