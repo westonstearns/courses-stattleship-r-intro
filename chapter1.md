@@ -346,10 +346,9 @@ We calulated this using the general formula:
 Runs over Replacement = Player_runs - ReplPlayer_runs = (Player_runs - AvgPlayer_runs) + (AvgPlayer_runs - ReplPlayer_runs)
 ```
 You can see this metric in the plot to the right which was generated using `ggplot2` with the following code
-```
-ggplot(stats, aes(x = Runs_Over_Replacement, y = meanBA, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar)) + geom_text()
 
-```
+```ggplot(stats, aes(x = Runs_Over_Replacement, y = meanBA, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar)) + geom_text()```
+
 If you want to learn more about `ggplot2`, try our course on <a href="http://www.datacamp.com/courses/data-visualization-with-ggplot2-1">ggplot2</a>.
 
 Use the plot to answer the following question:
@@ -378,7 +377,7 @@ ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = nam
 
 *** =sct
 ```{r}
-msg1 = "You got it! We hoped you enjoyed your intro to the stattleshipR package. This API gives you access to a tremendous amount of Sports information and we showed you just a fraction of what you can do with the data at your fingertips. Please explore the <a href="http://developers.stattleship.com/#introduction">stattleshipR package</a> and DataCamp to help get you moving toward becoming a Sports Data Scientist."
+msg1 = 'You got it! We hoped you enjoyed your intro to the stattleshipR package. This API gives you access to a tremendous amount of Sports information and we showed you just a fraction of what you can do with the data at your fingertips. Please explore the <a href="http://developers.stattleship.com/#introduction">stattleshipR package</a> and DataCamp to help get you moving toward becoming a Sports Data Scientist.'
 msg2 = "Try again."
 msg3 = "Not quite."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
