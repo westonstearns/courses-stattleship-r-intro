@@ -118,6 +118,231 @@ test_error()
 success_msg("Good work!")
 ```
 
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Game logs 1    
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
+
+
+```
+
+*** =solution
+```{r}
+game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Second Call     
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+player_data <- pls
+save(player_data, file = "player_data.RData")
+
+```
+
+*** =solution
+```{r}
+pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
+player_data <- pls
+save(player_data, file = "player_data.RData")
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Players    
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+
+```
+
+*** =solution
+```{r}
+players <- do.call('rbind', lapply(pls, function(x) x$players)) 
+
+colnames(players)[1] <- 'player_id'
+
+names(players)
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Game Logs   
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+
+```
+
+*** =solution
+```{r}
+
+game_logs <- merge(players, game_logs, by='player_id')
+
+names(game_logs)
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Stats    
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+stats <- 
+  game_logs %>%
+  filter(game_played == TRUE) %>%
+  group_by(name) %>%
+  summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
+
+names(stats)
+
+
+```
+
+*** =solution
+```{r}
+stats <- 
+  game_logs %>%
+  filter(game_played == TRUE) %>%
+  group_by(name) %>%
+  summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
+
+names(stats)
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
+## Plot    
+
+*** =instructions
+- 
+
+*** =hint
+- 
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
+
+
+```
+
+*** =solution
+```{r}
+ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
+
+```
+
+*** =sct
+```{r}
+
+test_error()
+success_msg("Good work!")
+```
+
+
 
 
 
