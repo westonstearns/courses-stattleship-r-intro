@@ -348,9 +348,9 @@ If you want to learn more about `ggplot2`, try our course on <a href="http://www
 Which player did stuff and stuff?
 
 *** =instructions
-- 2
-- 3
-- 4
+- Xander Bogaerts
+- David Ortiz
+- Joe Shmo
 
 *** =hint
 Here's a hint: think about your time in primary school.
