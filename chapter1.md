@@ -45,7 +45,7 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason')
 
 # The API call 
-game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = q_body, walk = TRUE)  
+game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = query_list, walk = TRUE)  
 
 ```
 
@@ -77,7 +77,7 @@ success_msg("Good work!")
 
 You successfully called in data using the stattleshipR API. Let's have a look at the data. 
 
-We have created a data frame 'all_variables' that contains a list of all the variables that were contained in the API call. It has already been loaded into the environment. It has only one column titled `variables` that is the list of variable names. 
+We have created a data frame 'all_variables' for you that contains a list of all the variables that were contained in the API call. It has already been loaded into the environment. It has only one column titled `variables` that is the list of variable names. 
 
 Print the list and then find out how long it is to get a sence of the size of the data you called.
 
