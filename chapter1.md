@@ -361,7 +361,7 @@ Which player has the highest `Runs_Over_Replacement_per_Dollar(thousand)`?
 - Dustin Pedroia
 
 *** =hint
-The place with the hightest `Runs_Over_Replacement_per_Dollar` will be in the lightest blue.
+The place with the hightest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`) will be in the lightest blue.
 
 *** =pre_exercise_code
 ```{r}
@@ -371,8 +371,8 @@ library(dplyr)
 stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
-    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Over_Replacement = Player_runs - ReplPlayer_runs, Runs_Over_Replacement_per_Dollar_thousand = 1000*(Runs_Over_Replacement/salary))
-ggplot(stats, aes(x = meanBA, y = Runs_Over_Replacement, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar_thousand)) + geom_text()
+    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Over_Replacement = Player_runs - ReplPlayer_runs, ROR_per_dollar_thousand = 1000*(Runs_Over_Replacement/salary))
+ggplot(stats, aes(x = meanBA, y = Runs_Over_Replacement, size = totalBases, label = name, color = ROR_per_dollar_thousand)) + geom_text()
 ```
 
 *** =sct
