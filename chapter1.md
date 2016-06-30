@@ -72,7 +72,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
-## First API Call
+## Exploring the API Data
 
 You successfully called in data using the stattleshipR API. Let's have a look at the data. 
 
@@ -120,27 +120,32 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
 ## Game logs 1    
 
+Explain the `do.call` function 
+```
+[NEW_DATA_SET] <- do.call('rbind', lapply([NAME OF DATASET], function(x) x$[NAME OF COLOMN])) 
+```
 *** =instructions
-- 
+- fill in the dataset name and the column name for the `do.call` function
+- print the names of the `game_logs` data set
 
 *** =hint
 - 
 
 *** =pre_exercise_code
 ```{r}
-
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_log_data.RData"))
 ```
 
 *** =sample_code
 ```{r}
-game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
-names(game_logs)
+game_logs_combined <- do.call('rbind', lapply(______, function(x) x$_____)) 
+names(game_logs_combined)
 ```
 
 *** =solution
 ```{r}
-game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
-names(game_logs)
+game_logs_combined <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
+names(game_logs_combined)
 ```
 
 *** =sct
@@ -207,20 +212,26 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
 ## Players    
 
+Explain the `do.call` function 
+```
+[NEW_DATA_SET] <- do.call('rbind', lapply([NAME OF DATASET], function(x) x$[NAME OF COLOMN])) 
+```
 *** =instructions
-- 
+- fill in the dataset name and the column name for the `do.call` function
+- print the names of the `players` data set
+
 
 *** =hint
 - 
 
 *** =pre_exercise_code
 ```{r}
-
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/player_data.RData"))
 ```
 
 *** =sample_code
 ```{r}
-players <- do.call('rbind', lapply(player_data, function(x) x$players)) 
+players <- do.call('rbind', lapply(_____, function(x) x$____)) 
 colnames(players)[1] <- 'player_id'
 names(players)
 
@@ -254,19 +265,20 @@ success_msg("Good work!")
 
 *** =pre_exercise_code
 ```{r}
-
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/players.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_logs_combined.RData"))
 ```
 
 *** =sample_code
 ```{r}
-game_logs <- merge(players, game_logs, by='player_id')
+game_logs <- merge(players, game_logs_combined, by='player_id')
 names(game_logs)
 
 ```
 
 *** =solution
 ```{r}
-game_logs <- merge(players, game_logs, by='player_id')
+game_logs <- merge(players, game_logs_combined, by='player_id')
 names(game_logs)
 
 ```
@@ -289,6 +301,7 @@ success_msg("Good work!")
 
 *** =pre_exercise_code
 ```{r}
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_logs.RData"))
 
 ```
 
@@ -334,6 +347,7 @@ success_msg("Good work!")
 
 *** =pre_exercise_code
 ```{r}
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/stats.RData"))
 
 ```
 
