@@ -336,7 +336,7 @@ names(stats)
 test_error()
 success_msg("Good work!")
 ```
---- type:MultipleChoiceExercise lang:r xp:50 skills:3
+--- type:MultipleChoiceExercise lang:r xp:50 skills:3 key:6d4d29437c
 ## Plot 
 
 We generated a plot using `ggplot2` with the following code
