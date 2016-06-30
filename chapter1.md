@@ -85,7 +85,7 @@ Print the list and then find out how long it is to get a sence of the size of th
 - Use the `length` function to find the number of variables you called in with the stattleshipR API call.  
 
 *** =hint
-- When using the `length` function remember to call the variable name that you would to know the length of. In this data set it is `length$variables` 
+- When using the `length` function, you need to unclude the `unlist()` so the length can cound the number of names. Just fill in the data frame name `all_variables` into the two functions. 
 
 *** =pre_exercise_code
 ```{r}
@@ -97,7 +97,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 # Print the data set all_variables
 
 # Find the total number of variables that were called using the API
-length(unlist(all_variables$____))
+length(unlist(___))
 ```
 
 *** =solution
@@ -106,7 +106,7 @@ length(unlist(all_variables$____))
 all_variables
 
 # Find the total number of variables that were called using the API
-length(unlist(all_variables$variables))
+length(unlist(all_variables))
 
 ```
 
