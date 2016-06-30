@@ -336,38 +336,38 @@ names(stats)
 test_error()
 success_msg("Good work!")
 ```
---- type:NormalExercise lang:r xp:100 skills:1  key:6d4d29437c
-## Plot    
+--- type:MultipleChoiceExercise lang:r xp:50 skills:3
+## Plot 
+
+We generated a plot using `ggplot2` with the following code
+```
+ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
+```
+If you want to learn more about `ggplot2`, try our course on <a href="http://www.datacamp.com/courses/data-visualization-with-ggplot2-1">ggplot2</a>.
+
+Which player did stuff and stuff?
 
 *** =instructions
-- 
+- 2
+- 3
+- 4
 
 *** =hint
-- 
+Here's a hint: think about your time in primary school.
 
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/stats.RData"))
 library(ggplot2)
-```
-
-*** =sample_code
-```{r}
 ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
-
-```
-
-*** =solution
-```{r}
-ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
-
 ```
 
 *** =sct
 ```{r}
-
-test_error()
-success_msg("Good work!")
+msg1 = "Try again!"
+msg2 = "Try again."
+msg3 = "Well done."
+test_mc(correct = 3, feedback_msgs = c(msg1,msg2,msg3))
 ```
 
 
