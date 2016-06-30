@@ -341,6 +341,7 @@ success_msg("Good work!")
 
 We generated a plot using `ggplot2` with the following code
 ```
+ggplot(stats, aes(x=RAA, y=meanBA, size=totalBases, label=name, color=RAA_Dollar)) + geom_text()
 ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
 ```
 If you want to learn more about `ggplot2`, try our course on <a href="http://www.datacamp.com/courses/data-visualization-with-ggplot2-1">ggplot2</a>.
@@ -360,7 +361,7 @@ Here's a hint: think about your time in primary school.
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/stats.RData"))
 library(ggplot2)
 library(dplyr)
-stats %>%
+stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
     mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), RAA = Player_runs - ReplPlayer_runs, RAA_Dollar = (RAA/salary))
