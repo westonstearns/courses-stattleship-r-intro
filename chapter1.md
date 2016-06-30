@@ -2,7 +2,6 @@
 title       : Introduction to Stattleship API
 description : test description
 
-
 --- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
 ## Loading stattleshipR and Calling the API
 The first step to using the Stattleship API is loading the package into your environment. 
@@ -136,7 +135,6 @@ success_msg("Good work!")
 ```{r}
 game_logs <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
 
-
 ```
 
 *** =solution
@@ -168,17 +166,13 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
-pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
-player_data <- pls
-save(player_data, file = "player_data.RData")
+player_data <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
 
 ```
 
 *** =solution
 ```{r}
-pls <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)  
-player_data <- pls
-save(player_data, file = "player_data.RData")
+player_data <- ss_get_result(sport=sport, league=league, ep=ep, query=q_body, walk=TRUE)
 
 ```
 
@@ -205,7 +199,11 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
+players <- do.call('rbind', lapply(pls, function(x) x$players)) 
 
+colnames(players)[1] <- 'player_id'
+
+names(players)
 
 ```
 
@@ -242,7 +240,9 @@ success_msg("Good work!")
 
 *** =sample_code
 ```{r}
+game_logs <- merge(players, game_logs, by='player_id')
 
+names(game_logs)
 
 ```
 
@@ -307,7 +307,6 @@ names(stats)
 test_error()
 success_msg("Good work!")
 ```
-
 --- type:NormalExercise lang:r xp:100 skills:1  key:6d4d29437c
 ## Plot    
 
@@ -326,7 +325,6 @@ success_msg("Good work!")
 ```{r}
 ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=salary)) + geom_text()
 
-
 ```
 
 *** =solution
@@ -341,6 +339,7 @@ ggplot(stats, aes(x=totalRuns, y=meanBA, size=totalBases, label=name, color=sala
 test_error()
 success_msg("Good work!")
 ```
+
 
 
 
