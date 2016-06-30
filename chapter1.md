@@ -371,8 +371,8 @@ library(dplyr)
 stats <- stats %>%
     mutate(avg_player_runs = mean(totalRuns)) %>%
   group_by(name) %>%
-    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Over_Replacement = Player_runs - ReplPlayer_runs, Runs_Over_Replacement_per_Dollar(thousand) = 1000*(Runs_Over_Replacement/salary))
-ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar(thousand))) + geom_text()
+    mutate(Player_runs = (totalRuns - avg_player_runs), ReplPlayer_runs = (avg_player_runs - 20.5), Runs_Over_Replacement = Player_runs - ReplPlayer_runs, Runs_Over_Replacement_per_Dollar_thousand = 1000*(Runs_Over_Replacement/salary))
+ggplot(stats, aes(x = meanBA, y = Runs_Above_Avg, size = totalBases, label = name, color = Runs_Over_Replacement_per_Dollar_thousand)) + geom_text()
 ```
 
 *** =sct
