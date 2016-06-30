@@ -1,7 +1,7 @@
 ---
 title       : Introduction to Stattleship API
 description : test description
----
+
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
 ## Loading stattleshipR and Calling the API
