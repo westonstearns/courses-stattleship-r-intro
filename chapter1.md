@@ -24,7 +24,7 @@ The format for the API call has been included in the sample code but follow the 
 - Run the API call and assign the results to `game_log_data`. 
 
 *** =hint
-- Don't change the code for the token or the `q_body`. Remember to use '' around the arguments you add to the API call.  
+- Don't change the code for the token or the `query_list`. Remember to use '' around the arguments you add to the API call.  
 
 *** =pre_exercise_code
 ```{r}
