@@ -10,8 +10,11 @@ The following code block can be copyied and pasted to download `stattleshipR` an
 <p>
 ```
 instal_packages("dev_tools")
+
 instal_packages("install_github")
+
 devtools::install_github("stattleship/stattleship-r")
+
 library(stattleshipR)
 ```
 </p>
