@@ -4,13 +4,18 @@ description : test description
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:ba6e1a41f2
 ## Loading stattleshipR and Calling the API
-The first step to using the Stattleship API is loading the package into your environment. 
+The first step to using the Stattleship API is downloading the package and loading it into your environment. 
 
-Use the standard `library` function to make the package available to use. 
+The following code block can be copyied and pasted to download `stattleshipR` and load it into your environment. 
+```
+instal_packages("dev_tools")
+instal_packages("install_github")
+devtools::install_github("stattleship/stattleship-r")
+library(stattleshipR)
+```
+The package has already been loaded on our server and is available in your environment. Now you can to explore the API call syntax. 
 
-Now that you have loaded the package, its time for you to explore the API call syntax. 
-
-You will need to set the token using the `set_token` function. The token here can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
+You will need to set the token using the `set_token` function. You are given a temporary token `TEMPORARY_TOKEN` that can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
 
 A `query_list` object is defined to be used in the API call. This code determines a list of features for the API to call. A full list of the options can be found <a href="http://developers.stattleship.com/#introduction">here</a>.
 
@@ -18,6 +23,7 @@ The format for the API call has been included in the sample code but follow the 
 
 *** =instructions
 - Use the `library` function to load the `stattleshipR` package.
+- `set_token` using the key `TEMPORARY_TOKEN`.
 - Set the `sport` argument in the API call to `'baseball'`.  
 - Set the `league` argument in the API call to `'mlb'`. 
 - Set the `ep` argument in the API call to `'game_logs'`.
@@ -28,17 +34,17 @@ The format for the API call has been included in the sample code but follow the 
 
 *** =pre_exercise_code
 ```{r}
-library(dplyr)
-library(ggplot2)
+library(stattleshipR)
+set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token <- function(x){
+print("YOUR_TEMPORARY_TOKEN")}
 ```
 
 *** =sample_code
 ```{r}
-# Load stattleshipR package
-library(___)
 
 # The token to access the stattleshipR API
-set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token(____)
 
 # Create a query list for the API call
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason')
@@ -50,11 +56,8 @@ game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = quer
 
 *** =solution
 ```{r}
-# Load stattleshipR package
-library(stattleshipR)
-
 # The token to access the stattleshipR API
-set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token("TEMPORARY_TOKEN")
 
 # Create a query list for the API call
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason')
@@ -66,8 +69,6 @@ query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regul
 
 *** =sct
 ```{r}
-
-
 
 
 test_error()
@@ -194,14 +195,11 @@ success_msg("Good work!")
 ## Second API Call     
 You will be using a second list of variables in later exercises so you will need to make a second call to the Stattleship API. 
 
-Use the standard `library` function to make the package available to use. 
-
 Use the `set_token` function again and run the code to assign the `query_list` object just like the first API call.
 
 The format for the API call has been included in the sample code but follow the instructions to define the missing arguments.
 
 *** =instructions
-- Use the `library` function to load the `stattleshipR` package.
 - Set the `sport` argument in the API call to `'baseball'`.  
 - Set the `league` argument in the API call to `'mlb'`. 
 - Set the `ep` argument in the API call to `'players'`.
@@ -212,16 +210,16 @@ The format for the API call has been included in the sample code but follow the 
 
 *** =pre_exercise_code
 ```{r}
-
+library(stattleshipR)
+set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token <- function(x){
+print("YOUR_TEMPORARY_TOKEN")}
 ```
 
 *** =sample_code
 ```{r}
-# Load stattleshipR package
-library(stattleshipR)
-
 # The token to access the stattleshipR API
-set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token("TEMPORARY_TOKEN")
 
 # Create a query list for the API call
 query_list <- list(team_id='mlb-bos')
@@ -233,12 +231,8 @@ player_data <- ss_get_result(sport='____', league='____', ep='____' , query=quer
 
 *** =solution
 ```{r}
-#
-# Load stattleshipR package
-library(stattleshipR)
-
 # The token to access the stattleshipR API
-set_token("416745fa271fa945c0834ecdbe8d5c08")
+set_token("TEMPORARY_TOKEN")
 
 # Create a query list for the API call
 query_list <- list(team_id='mlb-bos')
