@@ -372,10 +372,10 @@ success_msg("Good work!")
 ## Stats    
 
 Now that you have created a combined data set, you will manipulate some of the variables to create the following new variables:
-- `totalRuns`
-- `meanBA`
-- `totalBases`
-- `salary`
+<p>- `totalRuns`</p>
+<p>- `meanBA`</p>
+<p>- `totalBases`</p>
+<p>- `salary`</p>
 
 The code for the data manipulation is provided in the sample code. It follows the function from the `dplyr` package. If you want to learn more take a look at the premium <a href="https://www.datacamp.com/courses/dplyr-data-manipulation-r-tutorial">dplyr course</a>.
 
