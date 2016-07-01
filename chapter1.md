@@ -97,7 +97,7 @@ Print the variable list and then find out how long it is to get a sence of the s
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/all_variables.RData"))
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_log_data.RData")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_log_data.RData"))
 ```
 
 *** =sample_code
