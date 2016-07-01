@@ -90,10 +90,14 @@ Print the list and then find out how long it is to get a sence of the size of th
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/all_variables.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_log_data.RData")
 ```
 
 *** =sample_code
 ```{r}
+# Look at the data
+
+
 # Print the data set all_variables
 
 # Find the total number of variables that were called using the API
@@ -102,6 +106,9 @@ length(unlist(___))
 
 *** =solution
 ```{r}
+# Look at the data
+
+
 # Print the data set all_variables
 all_variables
 
