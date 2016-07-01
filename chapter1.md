@@ -298,8 +298,6 @@ colnames(players_combined)[1] <- '____'
 # Print the names of the variables in the new data set
 names(____)
 
-
-
 ```
 
 *** =solution
@@ -323,10 +321,15 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:7651cbecc4
-## Game Logs   
+## Game Logs  
+You have now created two lists, one with game log data and another with player attribute data. If we combine them we can link performance data from game logs with player attributes like their full name, schhol they attended and salary.
+
+You will use the combined data set to find the player with the highests Runs Over Replacement per thousand dollars of salary.
+
 
 *** =instructions
-- 
+- Combine the two datasets and assign it to `game_logs`.
+- Print the `game_logs` variables names. 
 
 *** =hint
 - 
@@ -340,16 +343,21 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 
 *** =sample_code
 ```{r}
+# Create the game_logs  
 game_logs <- merge(players_combined, game_logs_combined, by='player_id')
+
+# Print the variable names of the game_log data set
 names(game_logs)
 
 ```
 
 *** =solution
 ```{r}
-game_logs <- merge(players, game_logs_combined, by='player_id')
-names(game_logs)
+# Create the game_logs  
+game_logs <- merge(players_combined, game_logs_combined, by='player_id')
 
+# Print the variable names of the game_log data set
+names(game_logs)
 ```
 
 *** =sct
