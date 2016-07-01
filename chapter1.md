@@ -77,9 +77,9 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
 ## Exploring the API Data
 
-You successfully called in data using the stattleshipR API, running the precoded `lappy()` function can give you a sence of the data you called in. Use the `head()` fucntion to print an abrieveated list of the `game_log_data` summaries.  
+You successfully called in data using the stattleshipR API, running the precoded `lappy()` will summarize the sublists within the data you called in. Use the `head()` fucntion to print an abrieveated list of these summaries.  
 
-The `game_log_data` containes sublists that each have their own variables. We have created a data frame `all_variables` for you that contains all the unique variables within the sublists of the `game_log_data` data set. It has already been loaded into the environment. 
+The `game_log_data` sublists have their own variables. We have created a data frame `all_variables` for you that contains all the unique variables within the sublists of the `game_log_data` data set. It has already been loaded into the environment. 
 
 Print the variable list and then find out how long it is to get a sence of the size of the data you called.
 
