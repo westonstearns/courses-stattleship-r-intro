@@ -273,10 +273,7 @@ The new data set contains 34 player attribute variables.
 - Use the `colnames()` function to rename the frist players variable, `'player_id'`.
 - Print the names of the `players_combined` data set.
 
-Explain the `do.call` function 
-```
-[NEW_DATA_SET] <- do.call('rbind', lapply([NAME OF DATASET], function(x) x$[NAME OF COLOMN])) 
-```
+
 *** =hint
 - 
 
