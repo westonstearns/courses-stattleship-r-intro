@@ -141,13 +141,14 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
 ## Game logs 1    
 
-Explain the `do.call` function 
-```
-[NEW_DATA_SET] <- do.call('rbind', lapply([NAME OF DATASET], function(x) x$[NAME OF COLOMN])) 
-```
+As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. You will only be using two of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
+
+You will use the `do.call()`, the `lapply()` and the `rbind()` functions to combine rows of data that we want. The list you will first combine is the `game_log` list. 
+
+
 *** =instructions
-- fill in the dataset name and the column name for the `do.call` function
-- print the names of the `game_logs` data set
+- Create a new data set `game_logs_combined` by filling in the dataset name (`game_log_dat`) and the list name (`game_log`) for the `do.call()` function.
+- Print the names of the `game_logs` data set.
 
 *** =hint
 - 
@@ -159,14 +160,21 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 
 *** =sample_code
 ```{r}
+# Create the game_logs_combined data set
 game_logs_combined <- do.call('rbind', lapply(______, function(x) x$_____)) 
-names(game_logs_combined)
+
+# Print the names of the new data set
+names(____)
 ```
 
 *** =solution
 ```{r}
-game_logs_combined <- do.call('rbind', lapply(game_log_data, function(x) x$game_logs)) 
+# Create the game_logs_combined data set
+game_logs_combined <- do.call('rbind', lapply(______, function(x) x$_____)) 
+
+# Print the names of the new data set
 names(game_logs_combined)
+
 ```
 
 *** =sct
