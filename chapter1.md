@@ -143,17 +143,21 @@ success_msg("Good work!")
 
 As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. 
 
-You will only be using two of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
+You will only be using one of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
 
 You will use the `do.call()`, the `lapply()` and the `rbind()` functions to combine rows of data that we want. The list you will first combine is the `game_log` list. 
 
+In this exercise the `do.call()` function follows the following form:
+```NEW_DATA_SET_NAME <- do.call('rbind', lapply(DATA_SET, function(x) x$LIST_NAME))```
+
+The new data set contains 94 game log variables.
 
 *** =instructions
-- Create a new data set `game_logs_combined` by filling in the dataset name (`game_log_dat`) and the list name (`game_log`) for the `do.call()` function.
+- Create a new data set `game_logs_combined` by filling in the data set name (`game_log_data`) and the list name (`game_log`) for the `do.call()` function.
 - Print the names of the `game_logs` data set.
 
 *** =hint
-- 
+- HINT
 
 *** =pre_exercise_code
 ```{r}
@@ -187,10 +191,21 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:831345cf7b
-## Second Call     
+## Second API Call     
+You will be usign the a second list of variables in later exercises so you will need to make a second call to the Stattleship API. 
+
+Use the standard `library` function to make the package available to use. 
+
+Use the `set_token` function again and run the code to assign the `query_list` object just like the first API call.
+
+The format for the API call has been included in the sample code but follow the instructions to define the missing arguements.
 
 *** =instructions
-- 
+- Use the `library` function to load the `stattleshipR` package.
+- Set the `sport` arguement in the API call to `'baseball'`.  
+- Set the `league` argument in the API call to `'mlb'`. 
+- Set the `ep` argument in the API call to `'players'`.
+- Run the API call and assign the results to `player_data`. 
 
 *** =hint
 - 
@@ -212,7 +227,7 @@ set_token("416745fa271fa945c0834ecdbe8d5c08")
 query_list <- list(team_id='mlb-bos')
 
 # The API call 
-player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , query=query_list, walk=TRUE)
+player_data <- ss_get_result(sport='____', league='____', ep='____' , query=query_list, walk=TRUE)
 
 ```
 
@@ -241,17 +256,28 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
-## Players    
+## Combining player data  
+
+Just like the `game_log_data` data set, the `player_data` is a group of repeated multidimentional lists. 
+
+You will only be using one of the sublists in the following exercises, so you agian want to collect the data from each of the 6 repeated lists. 
+
+You will use the `do.call()`, the `lapply()` and the `rbind()` functions to combine rows of data that we want. The list you will first combine is the `players` list. 
+
+In this exercise the `do.call()` function follows the following form:
+```NEW_DATA_SET_NAME <- do.call('rbind', lapply(DATA_SET, function(x) x$LIST_NAME))```
+
+The new data set contains 34 player attribute variables.
+
+*** =instructions
+- Create a new data set `players_combined` by filling in the data set name (`player_data`) and the list name (`players`) for the `do.call()` function.
+- Use the `colnames()` function to rename the frist players variable, `'player_id'`.
+- Print the names of the `players_combined` data set.
 
 Explain the `do.call` function 
 ```
 [NEW_DATA_SET] <- do.call('rbind', lapply([NAME OF DATASET], function(x) x$[NAME OF COLOMN])) 
 ```
-*** =instructions
-- fill in the dataset name and the column name for the `do.call` function
-- print the names of the `players` data set
-
-
 *** =hint
 - 
 
@@ -262,19 +288,29 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 
 *** =sample_code
 ```{r}
-players <- do.call('rbind', lapply(_____, function(x) x$____)) 
-colnames(players)[1] <- 'player_id'
-names(players)
+# Create the players_combined data set
+players_combined <- do.call('rbind', lapply(_____, function(x) x$____)) 
+
+# Set the column names to 'player_id'
+colnames(players_combined)[1] <- '____'
+
+# Print the names of the variables in the new data set
+names(____)
+
 
 
 ```
 
 *** =solution
 ```{r}
-players <- do.call('rbind', lapply(player_data, function(x) x$players)) 
-colnames(players)[1] <- 'player_id'
-names(players)
+# Create the players_combined data set
+players_combined <- do.call('rbind', lapply(_____, function(x) x$____)) 
 
+# Set the column names to 'player_id'
+colnames(players_combined)[1] <- 'player_id'
+
+# Print the names of the variables in the new data set
+names(players_combined)
 
 ```
 
@@ -297,12 +333,13 @@ success_msg("Good work!")
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/players.RData"))
+players_combined <- players
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/game_logs_combined.RData"))
 ```
 
 *** =sample_code
 ```{r}
-game_logs <- merge(players, game_logs_combined, by='player_id')
+game_logs <- merge(players_combined, game_logs_combined, by='player_id')
 names(game_logs)
 
 ```
