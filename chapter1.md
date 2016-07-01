@@ -326,9 +326,14 @@ You have now created two lists, one with game log data and another with player a
 
 You will use the combined data set to find the player with the highests Runs Over Replacement per thousand dollars of salary.
 
+The `merger()` function follows the following format:
+```
+NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
+```
+
 
 *** =instructions
-- Combine the two datasets and assign it to `game_logs`.
+- Use the `merger()` function to combine the two datasets and assign it to `game_logs`.
 - Print the `game_logs` variables names. 
 
 *** =hint
@@ -344,10 +349,10 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 *** =sample_code
 ```{r}
 # Create the game_logs  
-game_logs <- merge(players_combined, game_logs_combined, by='player_id')
+game_logs <- merge(____, ____, by='____')
 
 # Print the variable names of the game_log data set
-names(game_logs)
+names(____)
 
 ```
 
@@ -370,8 +375,21 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:46ddcad271
 ## Stats    
 
+Now that you have created a combined data set, you will manipulate some of the variables to create the following new variables:
+- `totalRuns`
+- `meanBA`
+- `totalBases`
+- `salary`
+
+The code for the data manipulation is provided in the sample code. It follows the function from the `dplyr` package. If you want to learn more take a look at the premium <a href="https://www.datacamp.com/courses/dplyr-data-manipulation-r-tutorial">dplyr course</a>.
+
 *** =instructions
-- 
+- Manipulate the `game_logs` data set to create the following variables.
+- `totalRuns` is the `sum()` of the `runs` variable
+- `meanBA` is the `mean()` of the `batting_average` variable
+- `totalBases` is the `sum()` of the `total_bases` variable
+- `salary` is the `max()` of the `salary` variable
+- Print the variable names of the new data set `stats`
 
 *** =hint
 - 
@@ -384,15 +402,15 @@ library(dplyr)
 
 *** =sample_code
 ```{r}
+# Manipulate the game_logs data set
 stats <- 
   game_logs %>%
   filter(game_played == TRUE) %>%
   group_by(name) %>%
-  summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
+  summarise(totalRuns = sum(___), meanBA = mean(___), totalBases=sum(___), salary=max(___))
 
-names(stats)
-
-
+# Print the variable names of the stats data set
+names(___)
 ```
 
 *** =solution
