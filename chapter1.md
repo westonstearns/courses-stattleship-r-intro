@@ -10,21 +10,21 @@ Use the standard `library` function to make the package available to use.
 
 Now that you have loaded the package, its time for you to explore the API call syntax. 
 
-You will need to set the token using the `set_token` function. The token here can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a perminant token for using the API outside of DataCamp. 
+You will need to set the token using the `set_token` function. The token here can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
 
-A `query_list` object is defined to be used in the API call. This code determines a list of features for the API to call. A full list of the options can be found <a href="http://developers.stattleship.com/#introduction">here</a>. ## Add description of `query`.
+A `query_list` object is defined to be used in the API call. This code determines a list of features for the API to call. A full list of the options can be found <a href="http://developers.stattleship.com/#introduction">here</a>.
 
-The format for the API call has been included in the sample code but follow the instructions to define the missing arguements.
+The format for the API call has been included in the sample code but follow the instructions to define the missing arguments.
 
 *** =instructions
 - Use the `library` function to load the `stattleshipR` package.
-- Set the `sport` arguement in the API call to `'baseball'`.  
+- Set the `sport` argument in the API call to `'baseball'`.  
 - Set the `league` argument in the API call to `'mlb'`. 
 - Set the `ep` argument in the API call to `'game_logs'`.
 - Run the API call and assign the results to `game_log_data`. 
 
 *** =hint
-- Don't change the code for the token or the `q_body`. Remember to use '' around the arugments you add to the API call.  
+- Don't change the code for the token or the `q_body`. Remember to use '' around the arguments you add to the API call.  
 
 *** =pre_exercise_code
 ```{r}
@@ -77,11 +77,11 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
 ## Exploring the API Data
 
-You successfully called in data using the stattleshipR API, running the precoded `lappy()` will summarize the sublists within the data you called in. Use the `head()` fucntion to print an abrieveated list of these summaries.  
+You successfully called in data using the stattleshipR API, running the precoded `lappy()` will summarize the sublists within the data you called in. Use the `head()` function to print an abbreviated list of these summaries.  
 
 The `game_log_data` sublists have their own variables. We have created a data frame `all_variables` for you that contains all the unique variables within the sublists of the `game_log_data` data set. It has already been loaded into the environment. 
 
-Print the variable list and then find out how long it is to get a sence of the size of the data you called.
+Print the variable list and then find out how long it is to get a sense of the size of the data you called.
 
 *** =instructions
 - Add the data set to the `lapply()` function to create a summary of all the sublists within the `game_log_data`.
@@ -90,7 +90,7 @@ Print the variable list and then find out how long it is to get a sence of the s
 - Use the `length()` function to find the number of variables you called in with the stattleshipR API call.  
 
 *** =hint
-- When using the `length` function, you need to unclude the `unlist()` so the length can cound the number of names. Just fill in the data frame name `all_variables` into the two functions. 
+- When using the `length` function, you need to include the `unlist()` so the length can count the number of names. Just fill in the data frame name `all_variables` into the two functions. 
 
 *** =pre_exercise_code
 ```{r}
@@ -141,7 +141,7 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
 ## Combining game log data  
 
-As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. 
+As you saw the `game_log_data` data set is a group of repeated multidimensional lists. Each name you saw in the summary was its own list. 
 
 You will only be using one of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
 
@@ -192,17 +192,17 @@ success_msg("Good work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:831345cf7b
 ## Second API Call     
-You will be usign the a second list of variables in later exercises so you will need to make a second call to the Stattleship API. 
+You will be using a second list of variables in later exercises so you will need to make a second call to the Stattleship API. 
 
 Use the standard `library` function to make the package available to use. 
 
 Use the `set_token` function again and run the code to assign the `query_list` object just like the first API call.
 
-The format for the API call has been included in the sample code but follow the instructions to define the missing arguements.
+The format for the API call has been included in the sample code but follow the instructions to define the missing arguments.
 
 *** =instructions
 - Use the `library` function to load the `stattleshipR` package.
-- Set the `sport` arguement in the API call to `'baseball'`.  
+- Set the `sport` argument in the API call to `'baseball'`.  
 - Set the `league` argument in the API call to `'mlb'`. 
 - Set the `ep` argument in the API call to `'players'`.
 - Run the API call and assign the results to `player_data`. 
@@ -258,9 +258,9 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
 ## Combining player data  
 
-Just like the `game_log_data` data set, the `player_data` is a group of repeated multidimentional lists. 
+Just like the `game_log_data` data set, the `player_data` is a group of repeated multidimensional lists. 
 
-You will only be using one of the sublists in the following exercises, so you agian want to collect the data from each of the 6 repeated lists. 
+You will only be using one of the sublists in the following exercises, so you again want to collect the data from each of the 6 repeated lists. 
 
 You will use the `do.call()`, the `lapply()` and the `rbind()` functions to combine rows of data that we want. The list you will first combine is the `players` list. 
 
@@ -322,9 +322,9 @@ success_msg("Good work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:7651cbecc4
 ## Game Logs  
-You have now created two lists, one with game log data and another with player attribute data. If we combine them we can link performance data from game logs with player attributes like their full name, schhol they attended and salary.
+You have now created two lists, one with game log data and another with player attribute data. If we combine them we can link performance data from game logs with player attributes like their full name, the school they attended and salary.
 
-You will use the combined data set to find the player with the highests Runs Over Replacement per thousand dollars of salary.
+You will use the combined data set to find the player with the highest Runs Over Replacement per thousand dollars of salary.
 
 The `merger()` function follows the following format:
 ```
@@ -434,7 +434,7 @@ success_msg("Good work!")
 --- type:MultipleChoiceExercise lang:r xp:50 skills:3 key:6d4d29437c
 ## Plot 
 
-Using the `stats` data set you created in the previous exercise we calculated the Runs over Replacement metric. It identifies the number of runs a player gives their team when compared to an average replacemnt player. 
+Using the `stats` data set you created in the previous exercise we calculated the Runs over Replacement metric. It identifies the number of runs a player gives their team when compared to an average replacement player. 
 
 We calulated this using the general formula:
 ```
@@ -454,7 +454,7 @@ Which player has the highest Runs Over Replacement per thousand dollars of salar
 - Dustin Pedroia
 
 *** =hint
-The player with the hightest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`) will be in the lightest blue.
+The player with the highest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`) will be in the lightest blue.
 
 *** =pre_exercise_code
 ```{r}
