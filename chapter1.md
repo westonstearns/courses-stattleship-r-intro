@@ -10,10 +10,12 @@ The following code block can be copyied and pasted to download `stattleshipR` an
 <p>
 <code>
 instal_packages("dev_tools")
+
 instal_packages("install_github")
+
 devtools::install_github("stattleship/stattleship-r")
+
 library(stattleshipR)
-```
 </code>
 </p>
 The package has already been loaded on our server and is available in your environment. Now you can to explore the API call syntax. 
