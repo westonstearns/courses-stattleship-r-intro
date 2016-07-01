@@ -284,6 +284,7 @@ Explain the `do.call` function
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/datasets/player_data.RData"))
+
 ```
 
 *** =sample_code
@@ -304,7 +305,7 @@ names(____)
 *** =solution
 ```{r}
 # Create the players_combined data set
-players_combined <- do.call('rbind', lapply(_____, function(x) x$____)) 
+players_combined <- do.call('rbind', lapply(player_data, function(x) x$players)) 
 
 # Set the column names to 'player_id'
 colnames(players_combined)[1] <- 'player_id'
