@@ -141,7 +141,9 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
 ## Combining game log data  
 
-As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. You will only be using two of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
+As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. 
+
+You will only be using two of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
 
 You will use the `do.call()`, the `lapply()` and the `rbind()` functions to combine rows of data that we want. The list you will first combine is the `game_log` list. 
 
