@@ -67,6 +67,9 @@ query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regul
 *** =sct
 ```{r}
 
+
+
+
 test_error()
 success_msg("Good work!")
 ```
@@ -74,15 +77,19 @@ success_msg("Good work!")
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
 ## Exploring the API Data
 
-You successfully called in data using the stattleshipR API. Let's have a look at the data. 
+You successfully called in data using the stattleshipR API, running the precoded `lappy()` function can give you a sence of the data you called in.
 
-We have created a data frame 'all_variables' for you that contains a list of all the variables that were contained in the API call. It has already been loaded into the environment. It has only one column titled `variables` that is the list of variable names. 
+Use the `head()` fucntion to print a abrieveated list of the `game_log_data` summaries.  
 
-Print the list and then find out how long it is to get a sence of the size of the data you called.
+We have created a data frame `all_variables` for you that contains a list of all the variables that were contained in the `game_log_data` API call. It has already been loaded into the environment. It has only one column titled `variables` that is the list of variable names. 
+
+Print the variable list and then find out how long it is to get a sence of the size of the data you called.
 
 *** =instructions
-- Print the data set `all_variables`
-- Use the `length` function to find the number of variables you called in with the stattleshipR API call.  
+- Add the data set to the `lapply()` function to create a summary of all the lists within the `game_log_data`.
+- Use the `head()` function to rpint of the first 5 summaries.
+- Print the data set `all_variables`.
+- Use the `length()` function to find the number of variables you called in with the stattleshipR API call.  
 
 *** =hint
 - When using the `length` function, you need to unclude the `unlist()` so the length can cound the number of names. Just fill in the data frame name `all_variables` into the two functions. 
@@ -95,10 +102,14 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1256/dat
 
 *** =sample_code
 ```{r}
-# Look at the data
+# Summarising each data list within the game_log_data object
+summary <- lapply(_____, function(x) summary(x))
 
+# Print out the first 5 summaries
+head(_____)
 
 # Print the data set all_variables
+
 
 # Find the total number of variables that were called using the API
 length(unlist(___))
@@ -106,8 +117,11 @@ length(unlist(___))
 
 *** =solution
 ```{r}
-# Look at the data
+# Summarising each data list within the game_log_data object
+summary <- lapply(game_log_data, function(x) summary(x))
 
+# Print out the first 5 summaries
+head(summary)
 
 # Print the data set all_variables
 all_variables
@@ -119,6 +133,8 @@ length(unlist(all_variables))
 
 *** =sct
 ```{r}
+
+
 
 test_error()
 success_msg("Good work!")
