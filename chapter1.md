@@ -139,7 +139,7 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:49df9c3d68
-## Game logs 1    
+## Combining game log data  
 
 As you saw the `game_log_data` data set is a group of repeated multidimentional lists. Each name you saw in the summary was its own list. You will only be using two of the sublists in the following exercises, but we want to collect the data from each of the 31 repeated lists. 
 
@@ -170,7 +170,7 @@ names(____)
 *** =solution
 ```{r}
 # Create the game_logs_combined data set
-game_logs_combined <- do.call('rbind', lapply(______, function(x) x$_____)) 
+game_logs_combined <- do.call('rbind', lapply(game_log_data, function(x) x$game_log)) 
 
 # Print the names of the new data set
 names(game_logs_combined)
