@@ -7,14 +7,17 @@ description : test description
 The first step to using the Stattleship API is downloading the package and loading it into your environment. 
 
 The following code block can be copyied and pasted to download `stattleshipR` and load it into your environment.
-<p>
+
 ```
 instal_packages("dev_tools")
+
 instal_packages("install_github")
+
 devtools::install_github("stattleship/stattleship-r")
+
 library(stattleshipR)
 ```
-</p>
+
 The package has already been loaded on our server and is available in your environment. Now you can to explore the API call syntax. 
 
 You will need to set the token using the `set_token` function. You are given a temporary token `TEMPORARY_TOKEN` that can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
