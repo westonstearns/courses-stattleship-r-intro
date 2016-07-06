@@ -322,14 +322,14 @@ You have now created two lists, one with game log data and another with player a
 
 You will use the combined data set to find the player with the highest Runs Over Replacement per thousand dollars of salary.
 
-The `merger()` function follows the following format:
+The `merge()` function follows the following format:
 ```
 NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
 ```
 
 
 *** =instructions
-- Use the `merger()` function to combine the two datasets using the common variable `'player_id'` and assign it to `game_logs`.
+- Use the `merger()` function to combine the two datasets, `game_logs_combined` and `players_combines`, using the common variable `'player_id'` and assign it to `game_logs`.
 - Print the `game_logs` variables names. 
 
 *** =hint
