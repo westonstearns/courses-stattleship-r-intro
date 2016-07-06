@@ -445,7 +445,7 @@ Use the plot to answer the following question:
 Which player has the highest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`)?
 
 *** =instructions
-- Xander Bogaerts
+- Mookie Betts
 - David Ortiz
 - Dustin Pedroia
 
