@@ -68,13 +68,19 @@ set_token("TEMPORARY_TOKEN")
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 month ago')
 
 # The API call 
-#game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
+game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
 
 ```
 
 *** =sct
 ```{r}
+test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
+              incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clickin gon the arrow near the `submit answer` button.")
+
+test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -137,8 +143,16 @@ length(unlist(all_variables))
 
 *** =sct
 ```{r}
+test_function("lapply", args_not_specified_msg = 'Make sure you add the data frame to the `lappy` function.', 
+              incorrect_msg = 'The `lapply` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
+
+test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 
+test_output_contains("all_variables",incorrect_msg = "The data set `all_variables` was not printed. To print just type the                name in the script.R pane.")
+
+test_function("length", args_not_specified_msg = 'Make sure you fill in the blanks for the `length` function according to                 the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -163,7 +177,7 @@ The new data set contains 94 game log variables.
 - Print the names of the `game_logs` data set.
 
 *** =hint
-- HINT
+- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.
 
 *** =pre_exercise_code
 ```{r}
@@ -191,6 +205,11 @@ names(game_logs_combined)
 
 *** =sct
 ```{r}
+
+test_object("game_logs_combined", incorrect_msg = "The `game_logs_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
+
+test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -424,9 +443,15 @@ names(stats)
 *** =sct
 ```{r}
 
+
+
+
+
+
 test_error()
 success_msg("Good work!")
 ```
+
 --- type:MultipleChoiceExercise lang:r xp:50 skills:3 key:6d4d29437c
 ## Plot 
 
