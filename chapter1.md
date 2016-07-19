@@ -52,7 +52,7 @@ print("YOUR_TEMPORARY_TOKEN")}
 set_token(____)
 
 # Create a query list for the API call
-query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason', since = '1 month ago')
+query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason', since = '1 week ago')
 
 # The API call 
 game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = query_list, walk = TRUE)  
@@ -65,7 +65,7 @@ game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = quer
 set_token("TEMPORARY_TOKEN")
 
 # Create a query list for the API call
-query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 month ago')
+query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 week ago')
 
 # The API call 
 game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
@@ -88,8 +88,11 @@ success_msg("Good work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
 ## Exploring the API Data
+You successfully called in data using the stattleshipR API. 
 
-You successfully called in data using the stattleshipR API, running the precoded `lappy()` will summarize the sublists within the data you called in. Use the `head()` function to print an abbreviated list of these summaries.  
+Since this course can be taken over and over many times we saved data from an API call a week before the All-Star break in 2016. This data will be used for the remaining exercises. It is the same data that was called from the previous exercise. 
+
+To see what data you called in, run the precoded `lappy()` to summarize the sublists within the data. Use the `head()` function to print an abbreviated list of these summaries.  
 
 The `game_log_data` sublists have their own variables. We have created a data frame `all_variables` for you that contains all the unique variables within the sublists of the `game_log_data` data set. It has already been loaded into the environment. 
 
@@ -281,9 +284,10 @@ success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
-## Combining player data  
+## Combining player data
+As with the first API call, we have saved data from an API call to be used for the remaining exercises for consistency purposes, but the data is exactly the same as what you called in the previous exercise.
 
-Just like the `game_log_data` data set, the `player_data` is a group of repeated multidimensional lists. 
+The `player_data` is a group of repeated multidimensional lists, just like the `game_log_data`. 
 
 You will only be using one of the sublists in the following exercises, so you again want to collect the data from each of the 6 repeated lists. 
 
