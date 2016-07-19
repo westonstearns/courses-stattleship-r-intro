@@ -146,7 +146,7 @@ length(unlist(all_variables))
 test_function("lapply", args_not_specified_msg = 'Make sure you add the data frame to the `lappy` function.', 
               incorrect_msg = 'The `lapply` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
-test_output_contains("summary",incorrect_msg = "The data set `summary` was not defined properly. Follow the instructions to               define the `summary` object.")
+test_object("summary",incorrect_msg = "The data set `summary` was not defined properly. Follow the instructions to               define the `summary` object.")
 
 test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguements exactly match what you see in the instructions.')
 
