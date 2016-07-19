@@ -6,7 +6,7 @@ description : test description
 ## Loading stattleshipR and Calling the API
 The first step to using the Stattleship API is downloading the package and loading it into your environment. 
 
-The following code block can be copyied and pasted to download `stattleshipR` and load it into your environment.
+The following code block can be copied and pasted to download `stattleshipR` and load it into your environment.
 
 ```
 instal_packages("dev_tools")
@@ -18,7 +18,7 @@ devtools::install_github("stattleship/stattleship-r")
 library(stattleshipR)
 ```
 
-The package has already been loaded on our server and is available in your environment. Now you can to explore the API call syntax. 
+The package has already been loaded on our server and is available in your environment. Now you can explore the API call syntax. 
 
 You will need to set the token using the `set_token` function. You are given a temporary token `TEMPORARY_TOKEN` that can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
 
@@ -77,7 +77,7 @@ game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs
 test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
               incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
-test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clickin gon the arrow near the `submit answer` button.")
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clicking on the arrow near the `submit answer` button.")
 
 test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
               incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
@@ -148,7 +148,7 @@ test_function("lapply", args_not_specified_msg = 'Make sure you add the data fra
 
 test_object("summary",incorrect_msg = "The data set `summary` was not defined properly. Follow the instructions to               define the `summary` object.")
 
-test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguements exactly match what you see in the instructions.')
+test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_output_contains("all_variables",incorrect_msg = "The data set `all_variables` was not printed. To print just type the                name in the script.R pane.")
 
@@ -178,7 +178,7 @@ The new data set contains 94 game log variables.
 - Print the names of the `game_logs` data set.
 
 *** =hint
-- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
+- For the `do.call` function, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -209,7 +209,7 @@ names(game_logs_combined)
 test_object("game_logs_combined", incorrect_msg = "The `game_logs_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
 
 test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
-              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -271,7 +271,7 @@ player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , quer
 test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
               incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
-test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clickin gon the arrow near the `submit answer` button.")
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clicking on the arrow near the `submit answer` button.")
 
 test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
               incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
@@ -301,7 +301,7 @@ The new data set contains 34 player attribute variables.
 
 
 *** =hint
-- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
+- For the `do.call` function, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -340,7 +340,7 @@ names(players_combined)
 test_object("players_combined", incorrect_msg = "The `players_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
 
 test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
-              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -395,7 +395,7 @@ names(game_logs)
 
 *** =sct
 ```{r}
-test_function("merge", incorrect_msg = 'The `merge` function is not working properly, take a look at the instructions                 again and make sure that the arguements exactly match what you see in the instructions.')
+test_function("merge", incorrect_msg = 'The `merge` function is not working properly, take a look at the instructions                 again and make sure that the arguments exactly match what you see in the instructions.')
 
 test_object("game_logs",incorrect_msg = "Looks like the `game_logs` data set didn't merge correctly. Chek the instructions                for the correct arugements for the `merge` function.")
 
@@ -462,7 +462,7 @@ names(stats)
 test_object("stats",incorrect_msg = "The `stats` object is not correct. Check to make sure that you followed the directions             and filled the blanks with the correct variables.")
 
 test_function("names", 
-              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -513,9 +513,5 @@ msg3 = "Not quite."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 
 ```
-
-
-
-
 
 
