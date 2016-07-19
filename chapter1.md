@@ -178,7 +178,7 @@ The new data set contains 94 game log variables.
 - Print the names of the `game_logs` data set.
 
 *** =hint
-- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.
+- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -230,7 +230,7 @@ The format for the API call has been included in the sample code but follow the 
 - Run the API call and assign the results to `player_data`. 
 
 *** =hint
-- 
+- Don't change the `query_list` function, just run the code and the use the API call after filling in the blank spaces. To reset the sample code, click the circular arrow near the `submit answer` button.
 
 *** =pre_exercise_code
 ```{r}
@@ -301,7 +301,7 @@ The new data set contains 34 player attribute variables.
 
 
 *** =hint
-- 
+- For the `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -360,13 +360,12 @@ The `merge()` function follows the following format:
 NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
 ```
 
-
 *** =instructions
 - Use the `merger()` function to combine the two datasets, `game_logs_combined` and `players_combines`, using the common variable `'player_id'` and assign it to `game_logs`.
 - Print the `game_logs` variables names. 
 
 *** =hint
-- 
+- Make sure that the data set names are added to the `merge` function exactly as they are in the instructions. 
 
 *** =pre_exercise_code
 ```{r}
@@ -425,7 +424,7 @@ The code for the data manipulation is provided in the sample code. It follows th
 - Print the variable names of the new data set `stats`
 
 *** =hint
-- 
+- To create the `stats` data set, just fill in the blanks according to the instructions. 
 
 *** =pre_exercise_code
 ```{r}
