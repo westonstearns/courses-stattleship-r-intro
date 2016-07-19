@@ -52,7 +52,7 @@ print("YOUR_TEMPORARY_TOKEN")}
 set_token(____)
 
 # Create a query list for the API call
-query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason', since = '1 month ago')
+query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type ='regularseason', since = '1 week ago')
 
 # The API call 
 game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = query_list, walk = TRUE)  
@@ -65,7 +65,7 @@ game_log_data <- ss_get_result(sport = ___, league = ___, ep = ___, query = quer
 set_token("TEMPORARY_TOKEN")
 
 # Create a query list for the API call
-query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 month ago')
+query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 week ago')
 
 # The API call 
 #game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
