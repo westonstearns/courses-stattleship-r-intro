@@ -206,7 +206,6 @@ names(game_logs_combined)
 
 *** =sct
 ```{r}
-
 test_object("game_logs_combined", incorrect_msg = "The `game_logs_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
 
 test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
@@ -338,7 +337,13 @@ names(players_combined)
 
 *** =sct
 ```{r}
+test_object("players_combined", incorrect_msg = "The `players_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
 
+test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
+
+test_error()
+success_msg("Good work!")
 
 test_error()
 success_msg("Good work!")
@@ -391,6 +396,10 @@ names(game_logs)
 
 *** =sct
 ```{r}
+test_function("merge", incorrect_msg = 'The `merge` function is not working properly, take a look at the instructions                 again and make sure that the arguements exactly match what you see in the instructions.')
+
+test_object("game_logs",incorrect_msg = "Looks like the `game_logs` data set didn't merge correctly. Chek the instructions                for the correct arugements for the `merge` function.")
+
 
 test_error()
 success_msg("Good work!")
@@ -427,8 +436,7 @@ library(dplyr)
 *** =sample_code
 ```{r}
 # Manipulate the game_logs data set
-stats <- 
-  game_logs %>%
+stats <- game_logs %>%
   filter(game_played == TRUE) %>%
   group_by(name) %>%
   summarise(totalRuns = sum(___), meanBA = mean(___), totalBases=sum(___), salary=max(___))
@@ -439,23 +447,23 @@ names(___)
 
 *** =solution
 ```{r}
-stats <- 
-  game_logs %>%
+# Manipulate the game_logs data set
+stats <- game_logs %>%
   filter(game_played == TRUE) %>%
   group_by(name) %>%
   summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
 
+# Print the variable names of the stats data set
 names(stats)
 
 ```
 
 *** =sct
 ```{r}
+test_object("stats",incorrect_msg = "The `stats` object is not correct. Check to make sure that you followed the directions             and filled the blanks with the correct variables.")
 
-
-
-
-
+test_function("names", 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
