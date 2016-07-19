@@ -146,8 +146,9 @@ length(unlist(all_variables))
 test_function("lapply", args_not_specified_msg = 'Make sure you add the data frame to the `lappy` function.', 
               incorrect_msg = 'The `lapply` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
-test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguements exactly match what you see in the instructions.')
+test_output_contains("summary",incorrect_msg = "The data set `summary` was not defined properly. Follow the instructions to               define the `summary` object.")
 
+test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_output_contains("all_variables",incorrect_msg = "The data set `all_variables` was not printed. To print just type the                name in the script.R pane.")
 
@@ -268,6 +269,13 @@ player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , quer
 
 *** =sct
 ```{r}
+test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
+              incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
+
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clickin gon the arrow near the `submit answer` button.")
+
+test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -330,6 +338,7 @@ names(players_combined)
 
 *** =sct
 ```{r}
+
 
 test_error()
 success_msg("Good work!")
