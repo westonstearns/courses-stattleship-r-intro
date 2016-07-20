@@ -6,7 +6,7 @@ description : test description
 ## Loading stattleshipR and Calling the API
 The first step to using the Stattleship API is downloading the package and loading it into your environment. 
 
-The following code block can be copyied and pasted to download `stattleshipR` and load it into your environment.
+The following code block can be copied and pasted to download `stattleshipR` and load it into your environment.
 
 ```
 instal_packages("dev_tools")
@@ -18,7 +18,7 @@ devtools::install_github("stattleship/stattleship-r")
 library(stattleshipR)
 ```
 
-The package has already been loaded on our server and is available in your environment. Now you can to explore the API call syntax. 
+The package has already been loaded on our server and is available in your environment. Now you can explore the API call syntax. 
 
 You will need to set the token using the `set_token` function. You are given a temporary token `TEMPORARY_TOKEN` that can only be used in DataCamp, <a href="http://developers.stattleship.com/#introduction">click here</a> for more information about how to get a permanent token for using the API outside of DataCamp. 
 
@@ -68,13 +68,19 @@ set_token("TEMPORARY_TOKEN")
 query_list <- list(team_id = 'mlb-bos', status = 'ended', interval_type = 'regularseason', since = '1 week ago')
 
 # The API call 
-#game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
+game_log_data <- ss_get_result(sport = 'baseball', league= 'mlb', ep= 'game_logs' , query = query_list, walk=TRUE)  
 
 ```
 
 *** =sct
 ```{r}
+test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
+              incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clicking on the arrow near the `submit answer` button.")
+
+test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -82,8 +88,11 @@ success_msg("Good work!")
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:7e2208dfc7
 ## Exploring the API Data
+You successfully called in data using the stattleshipR API. 
 
-You successfully called in data using the stattleshipR API, running the precoded `lappy()` will summarize the sublists within the data you called in. Use the `head()` function to print an abbreviated list of these summaries.  
+Since this course can be taken over and over many times we saved data from an API call a week before the All-Star break in 2016. This data will be used for the remaining exercises. It is the same data that was called from the previous exercise. 
+
+To see what data you called in, run the precoded `lappy()` to summarize the sublists within the data. Use the `head()` function to print an abbreviated list of these summaries.  
 
 The `game_log_data` sublists have their own variables. We have created a data frame `all_variables` for you that contains all the unique variables within the sublists of the `game_log_data` data set. It has already been loaded into the environment. 
 
@@ -137,8 +146,17 @@ length(unlist(all_variables))
 
 *** =sct
 ```{r}
+test_function("lapply", args_not_specified_msg = 'Make sure you add the data frame to the `lappy` function.', 
+              incorrect_msg = 'The `lapply` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
 
+test_object("summary",incorrect_msg = "The data set `summary` was not defined properly. Follow the instructions to               define the `summary` object.")
 
+test_function("head", args_not_specified_msg = 'Make sure you add the name of the data set you want to print when using the               `head` function.', incorrect_msg = 'The `head` function was not called properly, take a look at the                         instructions again and make sure the arguments exactly match what you see in the instructions.')
+
+test_output_contains("all_variables",incorrect_msg = "The data set `all_variables` was not printed. To print just type the                name in the script.R pane.")
+
+test_function("length", args_not_specified_msg = 'Make sure you fill in the blanks for the `length` function according to                 the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -163,7 +181,7 @@ The new data set contains 94 game log variables.
 - Print the names of the `game_logs` data set.
 
 *** =hint
-- HINT
+- For the `do.call` function, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -191,6 +209,10 @@ names(game_logs_combined)
 
 *** =sct
 ```{r}
+test_object("game_logs_combined", incorrect_msg = "The `game_logs_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
+
+test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
@@ -211,7 +233,7 @@ The format for the API call has been included in the sample code but follow the 
 - Run the API call and assign the results to `player_data`. 
 
 *** =hint
-- 
+- Don't change the `query_list` function, just run the code and the use the API call after filling in the blank spaces. To reset the sample code, click the circular arrow near the `submit answer` button.
 
 *** =pre_exercise_code
 ```{r}
@@ -249,15 +271,23 @@ player_data <- ss_get_result(sport='baseball', league='mlb', ep='players' , quer
 
 *** =sct
 ```{r}
+test_function("set_token", args_not_specified_msg = 'Make sure you add "TEMPORARY_TOKEN" to the `set_token` function.', 
+              incorrect_msg = 'The `set_token` function is not working properly, take a look at the instructions again and make sure that your token exactly matches what you see in the instructions.')
+
+test_object("query_list",incorrect_msg = "Don't make any changes to the `query_list` object. If you need to you can reset                 the sample code by clicking on the arrow near the `submit answer` button.")
+
+test_function("ss_get_result", args_not_specified_msg = 'When running the AIP call, `ss_get_results`, make sure you fill in               the blanks according to the instructions.', 
+              incorrect_msg = 'The `ss_get_results` function is not working properly, take a look at the instructions again and make sure the arguements exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:1  key:901ced8002
-## Combining player data  
+## Combining player data
+As with the first API call, we have saved data from an API call to be used for the remaining exercises for consistency purposes, but the data is exactly the same as what you called in the previous exercise.
 
-Just like the `game_log_data` data set, the `player_data` is a group of repeated multidimensional lists. 
+The `player_data` is a group of repeated multidimensional lists, just like the `game_log_data`. 
 
 You will only be using one of the sublists in the following exercises, so you again want to collect the data from each of the 6 repeated lists. 
 
@@ -275,7 +305,7 @@ The new data set contains 34 player attribute variables.
 
 
 *** =hint
-- 
+- For the `do.call` function, simply add the data set in for the first blank and then the list name after the `$`. If you need to reset the sample code, click the circular arrow near the `submit answer` button. 
 
 *** =pre_exercise_code
 ```{r}
@@ -311,6 +341,13 @@ names(players_combined)
 
 *** =sct
 ```{r}
+test_object("players_combined", incorrect_msg = "The `players_combined` data set is not correct. To run the the                       `do.call` fuction, simply add the data set in for the first blank and then the list name after the `$`.")
+
+test_function("names", args_not_specified_msg = 'To print the names of the new data set, make sure you fill in the blanks                 according to the instructions.', 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
+
+test_error()
+success_msg("Good work!")
 
 test_error()
 success_msg("Good work!")
@@ -322,18 +359,17 @@ You have now created two lists, one with game log data and another with player a
 
 You will use the combined data set to find the player with the highest Runs Over Replacement per thousand dollars of salary.
 
-The `merger()` function follows the following format:
+The `merge()` function follows the following format:
 ```
 NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
 ```
 
-
 *** =instructions
-- Use the `merger()` function to combine the two datasets using the common variable `'player_id'` and assign it to `game_logs`.
+- Use the `merger()` function to combine the two datasets, `game_logs_combined` and `players_combines`, using the common variable `'player_id'` and assign it to `game_logs`.
 - Print the `game_logs` variables names. 
 
 *** =hint
-- 
+- Make sure that the data set names are added to the `merge` function exactly as they are in the instructions. 
 
 *** =pre_exercise_code
 ```{r}
@@ -363,6 +399,10 @@ names(game_logs)
 
 *** =sct
 ```{r}
+test_function("merge", incorrect_msg = 'The `merge` function is not working properly, take a look at the instructions                 again and make sure that the arguments exactly match what you see in the instructions.')
+
+test_object("game_logs",incorrect_msg = "Looks like the `game_logs` data set didn't merge correctly. Chek the instructions                for the correct arugements for the `merge` function.")
+
 
 test_error()
 success_msg("Good work!")
@@ -388,7 +428,7 @@ The code for the data manipulation is provided in the sample code. It follows th
 - Print the variable names of the new data set `stats`
 
 *** =hint
-- 
+- To create the `stats` data set, just fill in the blanks according to the instructions. 
 
 *** =pre_exercise_code
 ```{r}
@@ -399,8 +439,7 @@ library(dplyr)
 *** =sample_code
 ```{r}
 # Manipulate the game_logs data set
-stats <- 
-  game_logs %>%
+stats <- game_logs %>%
   filter(game_played == TRUE) %>%
   group_by(name) %>%
   summarise(totalRuns = sum(___), meanBA = mean(___), totalBases=sum(___), salary=max(___))
@@ -411,22 +450,28 @@ names(___)
 
 *** =solution
 ```{r}
-stats <- 
-  game_logs %>%
+# Manipulate the game_logs data set
+stats <- game_logs %>%
   filter(game_played == TRUE) %>%
   group_by(name) %>%
   summarise(totalRuns = sum(runs), meanBA = mean(batting_average), totalBases=sum(total_bases), salary=max(salary))
 
+# Print the variable names of the stats data set
 names(stats)
 
 ```
 
 *** =sct
 ```{r}
+test_object("stats",incorrect_msg = "The `stats` object is not correct. Check to make sure that you followed the directions             and filled the blanks with the correct variables.")
+
+test_function("names", 
+              incorrect_msg = 'The `names` function is not working properly, take a look at the instructions again and make sure the arguments exactly match what you see in the instructions.')
 
 test_error()
 success_msg("Good work!")
 ```
+
 --- type:MultipleChoiceExercise lang:r xp:50 skills:3 key:6d4d29437c
 ## Plot 
 
@@ -445,7 +490,7 @@ Use the plot to answer the following question:
 Which player has the highest Runs Over Replacement per thousand dollars of salary (`ROR_per_dollar_thousand`)?
 
 *** =instructions
-- Xander Bogaerts
+- Mookie Betts
 - David Ortiz
 - Dustin Pedroia
 
@@ -472,9 +517,5 @@ msg3 = "Not quite."
 test_mc(correct = 1, feedback_msgs = c(msg1,msg2,msg3))
 
 ```
-
-
-
-
 
 
