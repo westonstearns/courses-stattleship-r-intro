@@ -9,7 +9,7 @@ The first step to using the Stattleship API is downloading the package and loadi
 The following code block can be copied and pasted to download `stattleshipR` and load it into your environment.
 
 ```
-instal_packages("dev_tools")
+instal_packages("devtools")
 
 instal_packages("install_github")
 
@@ -365,7 +365,7 @@ NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
 ```
 
 *** =instructions
-- Use the `merger()` function to combine the two datasets, `game_logs_combined` and `players_combines`, using the common variable `'player_id'` and assign it to `game_logs`.
+- Use the `merge()` function to combine the two datasets, `game_logs_combined` and `players_combined`, using the common variable `'player_id'` and assign it to `game_logs`.
 - Print the `game_logs` variables names. 
 
 *** =hint
