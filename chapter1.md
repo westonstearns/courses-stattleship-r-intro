@@ -365,11 +365,11 @@ NEW_DATA_SET_NAME <- merge(DATA_SET_1, DATA_SET_2, by='COMMON_COLUMN')
 ```
 
 *** =instructions
-- Use the `merge()` function to combine the two datasets, `game_logs_combined` and `players_combined`, using the common variable `'player_id'` and assign it to `game_logs`.
+- Use the `merge()` function to combine the two datasets, `players_combined` and `game_logs_combined`, using the common variable `'player_id'` and assign it to `game_logs`. 
 - Print the `game_logs` variables names. 
 
 *** =hint
-- Make sure that the data set names are added to the `merge` function exactly as they are in the instructions. 
+- `merge(players_combined, game_logs_combined, by='player_id')`. Make sure that the data set names are added to the `merge` function exactly as they are in the instructions. 
 
 *** =pre_exercise_code
 ```{r}
