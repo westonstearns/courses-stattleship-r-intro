@@ -1,7 +1,7 @@
 title            : Introduction to the StattleshipR Package
 author_field     : tcash21
 description      : This course will teach you how to use the StattleshipR package to query for up-to-date sports stats directly into R.
-author_bio       : tcash21 is an awesome DataCamp course creator.<br>You can tell something about yourself <strong>here</strong>.
+author_bio       : tcash21 runs a data analytics consultancy, TCB Analytics, based in Boston, MA. She is also the Chief Data Officer for Stattleship.
 university       : DataCamp
 difficulty_level : 1
 time_needed      : 1 hour
